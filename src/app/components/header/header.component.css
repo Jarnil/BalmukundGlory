@@ -1,0 +1,162 @@
+ .nav-menu {
+  height : 11vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: transparent;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.7); 
+  box-shadow: 0 0 11px rgba(33,33,33,.5); 
+ }
+
+ .nav-menu.hidden {
+  display: none;
+}
+
+ .nav-menu.glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+ .links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+ }
+
+ .logo {
+  width: 20%;
+ }
+
+ img {
+  aspect-ratio: 16/9;
+  width: 150px;
+  /* object-fit: cover; */
+  object-fit: contain;
+ }
+
+ li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color:  #3C4142;
+  cursor: pointer;
+  font-size: 2.px;
+}
+
+.sidebar-button {
+  display: none; 
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ 
+
+@media (max-width: 915px) {
+  .links {
+      display: none;
+  }
+  .sidebar-button {
+    display: block;
+  }
+ 
+}
+
+@media (max-width: 1045px) {
+  li {
+    list-style: none;
+    margin: 0 10px;
+  }
+ 
+}
+
+@media (max-width: 600px) {
+  .brochure-form {
+    width: 300px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .brochure-form {
+    width: 250px !important;
+  }
+}
+
+.brochure-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+}
+
+input {
+  width: 100%;
+}
+
+.download-brochure-button{
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: #3C4142;
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+:host ::ng-deep .p-radioButton {
+  width: 100%;
+  margin: 20px 0;
+}
+
+
+:host ::ng-deep .p-button .pi {
+  font-size: 1.5rem;
+  color:#3C4142;
+  padding: 0px 7px;
+}
+
+.p-inputtext:enabled:focus, .p-inputtext:enabled:hover {
+  border-color: #3C4142;
+  box-shadow: none;
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: gray;
+  transition: width .3s;
+  position: relative;
+  bottom: -5px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  transition: width 0.5s;
+}
+
+.p-field {
+  margin: 20px 0 10px 0;
+}
+
+:host ::ng-deep .p-dialog.p-dialog-titlebar {
+  padding: 1rem;
+}

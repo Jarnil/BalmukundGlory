@@ -1,0 +1,18 @@
+.find-us {
+    padding: 0px 50px 30px 50px;
+  }
+  
+  h1 {
+    width: 250px;
+    color : #142D4C;
+  }
+
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 500px;
+  }

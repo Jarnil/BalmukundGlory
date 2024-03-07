@@ -1,0 +1,118 @@
+<div class="nav-menu glass" [class.hidden]="!isHeaderVisible" id="navbar">
+  <div class="logo">
+    <a routerLink="/"
+      ><img src="../../../assets/images/logo/Glory_Logo.png" alt=""
+    /></a>
+  </div>
+  <div class="links">
+    <li><a href="#about-us" class="nav-link">About The Brand</a></li>
+    <li><a href="#about-project" class="nav-link">About Project</a></li>
+    <li><a href="#amenities" class="nav-link">Amenities</a></li>
+    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+    <li><a (click)="showDialog()" class="nav-link">E-Brochure</a></li>
+    <li><a href="#contact-us" class="nav-link">Contact Us</a></li>
+  </div>
+  <div class="sidebar-button">
+    <p-button
+      type="button"
+      class="mr-2"
+      (click)="sidebarVisible = true"
+      [text]="true"
+      severity="secondary"
+      icon="pi pi-bars"
+    >
+    </p-button>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="sidebarVisible" position="left" styleClass="w-20rem">
+  <div class="sidebar-links">
+    <li>
+      <a (click)="showSidebar()" href="#about-us">About The Brand</a>
+    </li>
+    <li>
+      <a (click)="showSidebar()" href="#about-project">About Project</a>
+    </li>
+    <li>
+      <a (click)="showSidebar()" href="#amenities">Amenities</a>
+    </li>
+    <li>
+      <a (click)="showSidebar()" href="#gallery">Gallery</a>
+    </li>
+    <li><a (click)="showDialog()">E-Brochure</a></li>
+    <li>
+      <a (click)="showSidebar()" href="#contact-us">Contact Us</a>
+    </li>
+  </div>
+</p-sidebar>
+
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  header="Quick Enquiry"
+  position="top"
+>
+  <div class="brochure-form">
+    <div class="p-field">
+      <span class="p-float-label">
+        <input type="text" pInputText />
+        <label>Name</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label">
+        <input type="text" pInputText />
+        <label>Contact Number</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label">
+        <input type="text" pInputText />
+        <label>Email</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label">
+        <input type="text" pInputText />
+        <label>Occupation</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label">
+        <input type="text" pInputText />
+        <label>Address</label>
+      </span>
+    </div>
+    <!-- <span class="p-input-icon-left">
+      <i class="pi pi-user" style="font-size: 1rem"></i>
+      <input type="text" pInputText placeholder="Name" [(ngModel)]="name" />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Contact Number"
+        [(ngModel)]="contactNumber"
+      />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-at" style="font-size: 1rem"></i>
+      <input type="email" pInputText placeholder="Email" [(ngModel)]="email" />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-check-square" style="font-size: 1rem"></i>
+      <input type="occupation" pInputText placeholder="Occupation" />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-home" style="font-size: 1rem"></i>
+      <input type="address" pInputText placeholder="Address" />
+    </span> -->
+    <a
+      href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
+      download="BALMUKUND_GLORY_BROCHURE.pdf"
+      class="brochure-button"
+      ><p-button label="Download Brochure" (onClick)="submit()"></p-button
+    ></a>
+  </div>
+</p-dialog>

@@ -1,0 +1,76 @@
+{
+  "amenities": [
+    {
+      "name": "Club House",
+      "image": "assets/images/amenities/club_house.png"
+    },
+    {
+      "name": "Indoor Game Zone",
+      "image": "assets/images/amenities/indoor_games.png"
+    },
+    {
+      "name": "Outdoor Games",
+      "image": "assets/images/amenities/outdoor_games.png"
+    },
+    {
+      "name": "Library",
+      "image": "assets/images/amenities/library.png"
+    },
+    {
+      "name": "Julla Court",
+      "image": "assets/images/amenities/swing.png"
+    },
+    {
+      "name": "Lush Garden",
+      "image": "assets/images/amenities/garden.png"
+    },
+    {
+      "name": "Kids Play area",
+      "image": "assets/images/amenities/kids_play_area.png"
+    },
+    {
+      "name": "Decorative Enterance Lobby",
+      "image": "assets/images/amenities/entrance_lobby.png"
+    },
+    {
+      "name": "CCTV",
+      "image": "assets/images/amenities/cctv.png"
+    },
+    {
+      "name": "Ev Charging",
+      "image": "assets/images/amenities/ev_charging.png"
+    },
+    {
+      "name": "Open Air Theatre",
+      "image": "assets/images/amenities/open_air_theatre.png"
+    },
+    {
+      "name": "Shops",
+      "image": "assets/images/amenities/shops.png"
+    },
+    {
+      "name": "Senior Citizen Sit Out",
+      "image": "assets/images/amenities/senior_citizen_sit_out.png"
+    },
+    {
+      "name": "Alloted Parking",
+      "image": "assets/images/amenities/parking.png"
+    },
+    {
+      "name": "Fire Safety",
+      "image": "assets/images/amenities/fire_safety.png"
+    },
+    {
+      "name": "Provision of Gas Line",
+      "image": "assets/images/amenities/gas_line.png"
+    },
+    {
+      "name": "Wifi",
+      "image": "assets/images/amenities/wifi.png"
+    },
+    {
+      "name": "Solar provision",
+      "image": "assets/images/amenities/solar.png"
+    }
+  ]
+}

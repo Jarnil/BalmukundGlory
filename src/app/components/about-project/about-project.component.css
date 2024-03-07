@@ -1,0 +1,77 @@
+h1 {
+    width: 250px;
+    color: #142D4C
+}
+
+.about-project {
+    padding: 60px 50px;
+    background-color: #f1f1f1;
+}
+
+.about-project-section {
+    display: flex;
+}
+
+.project-details, .project-image {
+    width: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.row-1,.row-2 {
+    display: flex;
+    height: 50%;
+}
+
+.towers, .amenities, .units, .shops {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #142D4C;
+    margin-top: 0;
+}
+.heading p {
+    width: 70%;
+    font-size: 16px;
+    text-align: center;
+    color: #142D4C
+}
+p {
+    font-size: 2.5rem;
+    padding: 10px 0;
+    margin: 0;
+    color: #142D4C
+}
+
+span {
+    font-size: 1.2rem;
+    padding: 10px 0;
+    color: #142D4C
+}
+
+.towers, .shops {
+    background-color: #E4DCCF;
+    color: #142D4C
+}
+
+ .amenities, .units {
+    background-color: #CDC9C3;
+    color: #142D4C
+ }
+
+ .p-ripple .p-ink {
+    background: rgba(0, 0, 0, .3);
+}
+

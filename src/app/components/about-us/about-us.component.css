@@ -1,0 +1,164 @@
+.about-us {
+  margin: 60px 50px;
+}
+
+h1 {
+  width: 280px;
+  color: #142D4C
+}
+/* img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+} */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  color: #142D4C;
+
+}
+
+.intro p {
+  margin: 0;
+  text-align: center;
+  line-height: 1.5rem;
+  margin: 20px 0;
+}
+
+@media (max-width: 480px) {
+
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+  }
+  .flip-card-front {
+    width: 250px;
+    height: 350px;
+    perspective: 1000px;
+  }
+  .intro {
+    width: 90%;
+  }
+}
+
+.heading {
+  margin: 20px 0;
+  color: #142D4C;
+
+}
+
+.card-container {
+  display: flex;
+  /* column-gap: 8%; */
+  column-gap: 100px;
+  /* width: 100%; */
+  margin-top: 30px;
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  width: 40%;
+}
+
+/* .flip-card {
+  width: 28%;
+  height: 400px;
+  perspective: 1000px;
+} */
+
+.flip-card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.flip-card-front h2 {
+  color: #142D4C;
+}
+
+.flip-card-back {
+background-color: #142D4C;
+  color: #f1f1f1;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* .card-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #40679E;
+} */
+
+.card-content p {
+  margin: 20px 20px;
+  text-align: center;
+}
+
+.card-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.25rem;
+
+}
+
+.attribute{
+  position: absolute;
+  bottom: 10px;
+}
+

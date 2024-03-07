@@ -1,0 +1,31 @@
+<p-dialog [(visible)]="visible" [modal]="true">
+  <div class="brochure-form">
+    <span class="p-input-icon-left">
+      <i class="pi pi-user" style="font-size: 1rem"></i>
+      <input type="text" pInputText placeholder="Name" [(ngModel)]="name" />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-phone" style="font-size: 1rem"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Contact Number"
+        [(ngModel)]="contactNumber"
+      />
+    </span>
+    <span class="p-input-icon-left">
+      <i class="pi pi-at" style="font-size: 1rem"></i>
+      <input type="email" pInputText placeholder="Email" [(ngModel)]="email" />
+    </span>
+    <a
+      href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
+      download="BALMUKUND_GLORY_BROCHURE.pdf"
+      class="brochure-button"
+      ><p-button
+        label="Get Brochure"
+        severity="secondary"
+        (onClick)="submit()"
+      ></p-button
+    ></a>
+  </div>
+</p-dialog>

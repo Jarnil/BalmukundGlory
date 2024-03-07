@@ -1,0 +1,72 @@
+.amenities {
+    margin: 30px 50px;
+  }
+  
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color : #142D4C
+}
+h1 {
+  color : #142D4C
+}
+  .heading p {
+    width: 70%;
+    font-size: 16px;
+    text-align: center;
+}
+  
+  .amenities-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 20px; 
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 calc(20% - 20px); 
+    max-width: calc(20% - 20px); 
+    height: 220px;
+  }
+  
+  .image-container {
+    background-color: #E4DCCF;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  h4 {
+    text-align: center;
+    margin: 20px 0;
+    color : #142D4C
+  }
+  
+
+  /* :host ::ng-deep .product-item .product-item-content {
+            border: 1px solid black;
+            border-radius: 3px;
+            margin: .3rem;
+            text-align: center;
+            padding: 2rem 0;
+}
+
+:host ::ng-deep .product-item .product-image  {
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+} */

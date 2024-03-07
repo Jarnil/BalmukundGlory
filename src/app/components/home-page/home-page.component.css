@@ -1,0 +1,30 @@
+video {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: auto;
+  width: 100%;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+:host ::ng-deep .custom-scrolltop {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: #142D4C;
+
+  .p-scrolltop-icon {
+    font-size: 1.5rem;
+    color: #CDC9C3;
+  }
+}
+
+

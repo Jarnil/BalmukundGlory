@@ -1,0 +1,12 @@
+.brochure-button {
+  width: 100%;
+  margin-top: 40px;
+}
+
+:host ::ng-deep .p-button .p-button-label {
+  padding : 12px 20px;
+}
+
+:host ::ng-deep .p-button {
+    width: 100%;
+  }

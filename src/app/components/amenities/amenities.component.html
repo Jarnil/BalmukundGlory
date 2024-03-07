@@ -1,0 +1,57 @@
+<div class="amenities" id="amenities">
+  <div class="heading">
+    <h1>amenities</h1>
+    <h3>Indulge in a Lifestyle of Luxury with Over 15 Exclusive Amenities</h3>
+    <p>
+      At Balmukund Glory, we pride ourselves on offering an unparalleled living
+      experience. With over 15 exclusive amenities, residents are treated to a
+      wealth of opportunities for relaxation, recreation, and rejuvenation. From
+      vibrant community spaces perfect for fostering connections to serene
+      wellness areas designed for ultimate relaxation, every aspect of our
+      amenities is crafted to elevate your lifestyle to new heights.
+    </p>
+  </div>
+  <div class="amenities-container">
+    <div class="card" *ngFor="let amenity of amenities">
+      <div class="image-container">
+        <img src="{{ amenity.image }}" alt="{{ amenity.name }}" />
+      </div>
+      <div class="name">
+        <h4>{{ amenity.name }}</h4>
+      </div>
+    </div>
+    <!-- <p-carousel
+      [value]="amenities"
+      [numVisible]="5"
+      [numScroll]="5"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-amenity pTemplate="item">
+        <div class="card">
+          <div class="image-container">
+            <img src="{{ amenity.image }}" alt="{{ amenity.name }}" />
+          </div>
+          <div class="name">
+            <h4>{{ amenity.name }}</h4>
+          </div>
+        </div>
+
+         <div class="amenity-item">
+          <div class="amenity-item-content">
+            <div class="mb-3">
+              <img
+                src="{{ amenity.image }}"
+                [alt]="amenity.name"
+                class="product-image"
+              />
+            </div>
+            <div>
+              <h4 class="mb-1">{{ amenity.name }}</h4>
+            </div>
+          </div>
+        </div> 
+      </ng-template>
+    </p-carousel> -->
+  </div>
+</div>

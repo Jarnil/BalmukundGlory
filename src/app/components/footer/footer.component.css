@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #142D4C;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .brand {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 24px;
+    color: #e7e2ff;
+    padding: 10px 0;
+  }
+  
+  .copyright {
+    font-size: 14px;
+    color: #e7e2ff;
+  }
+  
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}

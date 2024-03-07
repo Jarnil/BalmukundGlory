@@ -1,0 +1,36 @@
+<div class="gallery" id="gallery">
+  <div class="heading">
+    <h1>Gallery</h1>
+    <h3>
+      Discover the Essence of Elevated Living and Thriving Business at Balmukund
+      Glory
+    </h3>
+  </div>
+  <div class="image-container">
+    <ng-container *ngFor="let image of images; let index = index">
+      <img
+        [src]="image"
+        alt="Image"
+        (click)="imageClick(index)"
+        class="gallery-image"
+        loading="lazy"
+      />
+    </ng-container>
+  </div>
+</div>
+
+<p-galleria
+  [value]="images"
+  [(visible)]="displayBasic"
+  [(activeIndex)]="activeIndex"
+  [containerStyle]="{ 'max-width': '850px' }"
+  [numVisible]="7"
+  [circular]="true"
+  [fullScreen]="true"
+  [showItemNavigators]="true"
+  [showThumbnails]="false"
+>
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item" style="width: 100%; display: block" />
+  </ng-template>
+</p-galleria>

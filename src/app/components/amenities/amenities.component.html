@@ -12,46 +12,23 @@
     </p>
   </div>
   <div class="amenities-container">
-    <div class="card" *ngFor="let amenity of amenities">
-      <div class="image-container">
-        <img src="{{ amenity.image }}" alt="{{ amenity.name }}" />
-      </div>
-      <div class="name">
-        <h4>{{ amenity.name }}</h4>
-      </div>
-    </div>
-    <!-- <p-carousel
+    <p-carousel
       [value]="amenities"
       [numVisible]="5"
-      [numScroll]="5"
+      [numScroll]="1"
       [circular]="true"
       [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-amenity pTemplate="item">
         <div class="card">
           <div class="image-container">
-            <img src="{{ amenity.image }}" alt="{{ amenity.name }}" />
+            <img src="{{ amenity.image }}" alt="" />
           </div>
           <div class="name">
             <h4>{{ amenity.name }}</h4>
           </div>
         </div>
-
-         <div class="amenity-item">
-          <div class="amenity-item-content">
-            <div class="mb-3">
-              <img
-                src="{{ amenity.image }}"
-                [alt]="amenity.name"
-                class="product-image"
-              />
-            </div>
-            <div>
-              <h4 class="mb-1">{{ amenity.name }}</h4>
-            </div>
-          </div>
-        </div> 
       </ng-template>
-    </p-carousel> -->
+    </p-carousel>
   </div>
 </div>

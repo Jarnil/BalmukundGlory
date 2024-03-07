@@ -19,17 +19,17 @@ export class AmenitiesComponent {
     this.responsiveOptions = [
       {
         breakpoint: '1400px',
-        numVisible: 3,
-        numScroll: 3,
+        numVisible: 5,
+        numScroll: 1,
       },
       {
         breakpoint: '1220px',
-        numVisible: 2,
-        numScroll: 2,
+        numVisible: 5,
+        numScroll: 1,
       },
       {
         breakpoint: '1100px',
-        numVisible: 1,
+        numVisible: 3,
         numScroll: 1,
       },
     ];

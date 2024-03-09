@@ -12,7 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutProjectComponent } from './components/about-project/about-project.component';
 import { AmenitiesComponent } from './components/amenities/amenities.component';
 import { EnquiryComponent } from './components/enquiry/enquiry.component';
-import { FindUsComponent } from './components/find-us/find-us.component';
+import { OdometerComponent } from './components/odometer/odometer.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
@@ -31,7 +31,36 @@ import { FormsModule } from '@angular/forms';
 import { DividerModule } from 'primeng/divider';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ScrollTopModule } from 'primeng/scrolltop';
-import { OdometerComponent } from './components/odometer/odometer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  NgxUiLoaderConfig,
+  NgxUiLoaderModule,
+  NgxUiLoaderRouterModule,
+} from 'ngx-ui-loader';
+
+const ngxUILoaderConfig: NgxUiLoaderConfig = {
+  fastFadeOut: true,
+  fgsColor: '#142d4c',
+  fgsPosition: 'center-center',
+  fgsSize: 60,
+  fgsType: 'three-bounce',
+  gap: 24,
+  logoPosition: 'center-center',
+  logoSize: 120,
+  logoUrl: 'assets/images/logo/Balmukund_Logo.png',
+  masterLoaderId: 'master',
+  overlayBorderRadius: '0',
+  overlayColor: 'rgba(40, 40, 40, 0.8)',
+  pbColor: '#142d4c',
+  pbDirection: 'ltr',
+  pbThickness: 3,
+  hasProgressBar: true,
+  text: '',
+  textColor: '#FFFFFF',
+  textPosition: 'center-center',
+  maxTime: -1,
+  minTime: 300,
+};
 
 @NgModule({
   declarations: [
@@ -45,7 +74,6 @@ import { OdometerComponent } from './components/odometer/odometer.component';
     AboutProjectComponent,
     EnquiryComponent,
     AmenitiesComponent,
-    FindUsComponent,
     OdometerComponent,
   ],
   providers: [provideClientHydration()],
@@ -53,6 +81,7 @@ import { OdometerComponent } from './components/odometer/odometer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ButtonModule,
@@ -68,6 +97,8 @@ import { OdometerComponent } from './components/odometer/odometer.component';
     DividerModule,
     RadioButtonModule,
     ScrollTopModule,
+    NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
+    NgxUiLoaderRouterModule,
   ],
 })
 export class AppModule {}

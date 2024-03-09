@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-enquiry',
@@ -10,15 +11,29 @@ export class EnquiryComponent {
   public name: string;
   public contactNumber: string;
   public email: string;
+  myForm!: FormGroup;
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
     this.name = '';
     this.contactNumber = '';
     this.email = '';
   }
 
-  showDialog() {
-    this.visible = true;
+  ngOnInit(): void {
+    this.myForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      contactNumber: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      occupation: ['', Validators.required],
+      address: ['', Validators.required],
+      pizza: ['', Validators.required],
+    });
+  }
+
+  onSubmit() {
+    if (this.myForm.valid) {
+      console.log(this.myForm.value);
+    }
   }
 
   submit() {

@@ -1,31 +1,72 @@
-<p-dialog [(visible)]="visible" [modal]="true">
-  <div class="brochure-form">
-    <span class="p-input-icon-left">
-      <i class="pi pi-user" style="font-size: 1rem"></i>
-      <input type="text" pInputText placeholder="Name" [(ngModel)]="name" />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-phone" style="font-size: 1rem"></i>
-      <input
-        type="text"
-        pInputText
-        placeholder="Contact Number"
-        [(ngModel)]="contactNumber"
-      />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-at" style="font-size: 1rem"></i>
-      <input type="email" pInputText placeholder="Email" [(ngModel)]="email" />
-    </span>
-    <a
-      href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
-      download="BALMUKUND_GLORY_BROCHURE.pdf"
-      class="brochure-button"
-      ><p-button
-        label="Get Brochure"
-        severity="secondary"
-        (onClick)="submit()"
-      ></p-button
-    ></a>
+<div class="enquiry" id="enquiry">
+  <div class="heading">
+    <h1>Find Us On <b>Maps</b></h1>
   </div>
-</p-dialog>
+  <div class="find-us-container">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6168.483098490531!2d72.6473687174005!3d23.177425760231234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b7b0ae31f23%3A0x9d9d5858872a7dcf!2sBalmukund%20Glory!5e0!3m2!1sen!2sin!4v1709399364488!5m2!1sen!2sin"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div class="enquiry-container">
+      <h2>Quick Enquiry</h2>
+      <span class="p-input-icon-left">
+        <i class="pi pi-user" style="font-size: 1rem"></i>
+        <input type="text" pInputText placeholder="Name" />
+      </span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
+        <input type="text" pInputText placeholder="Contact Number" />
+      </span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-at" style="font-size: 1rem"></i>
+        <input type="email" pInputText placeholder="Email" />
+      </span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-check-square" style="font-size: 1rem"></i>
+        <input type="occupation" pInputText placeholder="Occupation" />
+      </span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-home" style="font-size: 1rem"></i>
+        <input type="address" pInputText placeholder="Address" />
+      </span>
+      <div class="flex flex-wrap gap-3">
+        <div class="flex align-items-center">
+          <p-radioButton
+            name="pizza"
+            value="Cheese"
+            inputId="ingredient1"
+          ></p-radioButton>
+          <label for="ingredient1" class="ml-2">2 BHK</label>
+        </div>
+
+        <div class="flex align-items-center">
+          <p-radioButton
+            name="pizza"
+            value="Mushroom"
+            inputId="ingredient2"
+          ></p-radioButton>
+          <label for="ingredient2" class="ml-2">3 BHK</label>
+        </div>
+        <div class="flex align-items-center">
+          <p-radioButton
+            name="pizza"
+            value="Mushroom"
+            inputId="ingredient2"
+          ></p-radioButton>
+          <label for="ingredient2" class="ml-2">Shop</label>
+        </div>
+      </div>
+      <a
+        href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
+        download="BALMUKUND_GLORY_BROCHURE.pdf"
+        class="brochure-button"
+        ><p-button label="Download Brochure"></p-button
+      ></a>
+    </div>
+  </div>
+</div>

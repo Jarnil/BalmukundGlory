@@ -1,12 +1,83 @@
-.brochure-button {
-  width: 100%;
-  margin-top: 40px;
+.enquiry {
+  padding: 50px 0px;
 }
 
-:host ::ng-deep .p-button .p-button-label {
-  padding : 12px 20px;
+h1 {
+  width: 250px;
+  color : #142D4C;
+}
+
+h2 {
+  color : #142D4C;
+}
+
+.heading{
+  margin: 0px 0px 30px;
+}
+
+.map {
+  width: 60%;
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 500px;
+}
+
+.find-us-container {
+  display: flex;
+}
+
+.enquiry-container {
+  background-color: #f1f1f1;
+  width: 40% ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+input {
+  width: 350px;
+}
+
+input:hover {
+  border: 1px solid #142D4C;
+}
+
+input:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #142D4C;
+}
+
+.download-brochure-button{
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: #3C4142;
+  cursor: pointer;
 }
 
 :host ::ng-deep .p-button {
-    width: 100%;
-  }
+  width: 100%;
+  margin: 10px 0;
+  background: #142D4C;
+  border: none;
+}
+
+:host ::ng-deep.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #142D4C;
+  background: #142D4C;
+  color: #f1f1f1;
+}
+
+:host ::ng-deep.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+  border-color: #142D4C;
+}
+
+:host ::ng-deep.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+  box-shadow: none;
+}

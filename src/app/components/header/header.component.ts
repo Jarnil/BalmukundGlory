@@ -42,6 +42,20 @@ export class HeaderComponent {
     this.sidebarVisible = !this.sidebarVisible;
   }
 
+  scrollToSection(sectionId: string) {
+    const headerElement = document.querySelector('.nav-menu') as HTMLElement;
+    const headerHeight = headerElement.offsetHeight;
+    const targetSection = document.getElementById(sectionId);
+
+    if (targetSection) {
+      const offsetTop = targetSection.offsetTop - headerHeight - 11;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  }
+
   submit() {
     const scriptURL =
       'https://script.google.com/macros/s/AKfycbzFnwx06IhmDnsTd3X1l4r8YIbsKjakkhoDaOLeeADrEntemB8a4m5_ddzG8oeO0nqcqA/exec';

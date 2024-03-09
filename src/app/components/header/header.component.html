@@ -5,12 +5,34 @@
     /></a>
   </div>
   <div class="links">
-    <li><a href="#about-us" class="nav-link">About The Brand</a></li>
+    <li>
+      <a (click)="scrollToSection('about-us')" class="nav-link"
+        >About The Brand</a
+      >
+    </li>
+    <li>
+      <a (click)="scrollToSection('about-project')" class="nav-link"
+        >About Project</a
+      >
+    </li>
+    <li>
+      <a (click)="scrollToSection('amenities')" class="nav-link">Amenities</a>
+    </li>
+    <li>
+      <a (click)="scrollToSection('gallery')" class="nav-link">Gallery</a>
+    </li>
+    <li>
+      <a (click)="scrollToSection('enquiry')" class="nav-link">E-Brochure</a>
+    </li>
+    <li>
+      <a (click)="scrollToSection('contact-us')" class="nav-link">Contact Us</a>
+    </li>
+    <!-- <li><a href="#about-us" class="nav-link">About The Brand</a></li>
     <li><a href="#about-project" class="nav-link">About Project</a></li>
     <li><a href="#amenities" class="nav-link">Amenities</a></li>
     <li><a href="#gallery" class="nav-link">Gallery</a></li>
     <li><a (click)="showDialog()" class="nav-link">E-Brochure</a></li>
-    <li><a href="#contact-us" class="nav-link">Contact Us</a></li>
+    <li><a href="#contact-us" class="nav-link">Contact Us</a></li> -->
   </div>
   <div class="sidebar-button">
     <p-button

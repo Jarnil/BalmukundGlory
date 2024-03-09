@@ -20,7 +20,6 @@ import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ImageModule } from 'primeng/image';
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
@@ -28,8 +27,6 @@ import { RippleModule } from 'primeng/ripple';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { DividerModule } from 'primeng/divider';
-import { RadioButtonModule } from 'primeng/radiobutton';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
@@ -86,7 +83,6 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     HttpClientModule,
     ButtonModule,
     SidebarModule,
-    ImageModule,
     GalleriaModule,
     CarouselModule,
     CardModule,
@@ -94,8 +90,6 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     DialogModule,
     InputTextModule,
     FormsModule,
-    DividerModule,
-    RadioButtonModule,
     ScrollTopModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,

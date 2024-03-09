@@ -48,7 +48,7 @@ export class HeaderComponent {
     const targetSection = document.getElementById(sectionId);
 
     if (targetSection) {
-      const offsetTop = targetSection.offsetTop - headerHeight - 11;
+      const offsetTop = targetSection.offsetTop - headerHeight;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth',

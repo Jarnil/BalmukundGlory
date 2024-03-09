@@ -1,5 +1,5 @@
  .nav-menu {
-  height : 11vh;
+  /* height : 11vh; */
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -9,6 +9,7 @@ h1 {
 
 h2 {
   color : #142D4C;
+  /* margin-bottom: 0; */
 }
 
 .heading{
@@ -22,7 +23,7 @@ h2 {
 
 iframe {
   width: 100%;
-  height: 500px;
+  height: 600px;
 }
 
 .find-us-container {
@@ -53,17 +54,17 @@ input:enabled:focus {
   border-color: #142D4C;
 }
 
-.download-brochure-button{
-  padding: 12px 20px;
-  border-radius: 5px;
-  color: white;
-  background-color: #3C4142;
-  cursor: pointer;
+input[type="checkbox"] {
+  width: 20px;
+}
+
+input[type="checkbox"]:checked {
+  color: red;
 }
 
 :host ::ng-deep .p-button {
   width: 100%;
-  margin: 10px 0;
+  margin: 20px 0;
   background: #142D4C;
   border: none;
 }
@@ -80,4 +81,29 @@ input:enabled:focus {
 
 :host ::ng-deep.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
   box-shadow: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-input {
+  margin: 10px 0;
+}
+
+.checkbox-buttons {
+  display: flex;
+  width: 350px;
+  margin: 10px 0;
+  justify-content: space-evenly;
+}
+
+.invalid-message {
+  color: red;
+}
+
+.p-invalid input {
+  border-color: red !important;
 }

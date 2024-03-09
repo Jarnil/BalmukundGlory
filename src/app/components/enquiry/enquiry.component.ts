@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-enquiry',
@@ -8,52 +8,78 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EnquiryComponent {
   visible: boolean = false;
-  public name: string;
-  public contactNumber: string;
-  public email: string;
-  myForm!: FormGroup;
+  enquiryForm!: FormGroup;
+  existingFileName: string = 'DemoSheet.xlsx';
+  newFileName: string = 'DemoSheet_NEW.xlsx';
+  fileName: string = 'DemoSheet.xlsx';
 
-  constructor(private formBuilder: FormBuilder) {
-    this.name = '';
-    this.contactNumber = '';
-    this.email = '';
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
+    this.enquiryForm = this.formBuilder.group({
       name: ['', Validators.required],
       contactNumber: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      occupation: ['', Validators.required],
-      address: ['', Validators.required],
-      pizza: ['', Validators.required],
+      occupation: [''],
+      address: [''],
+      requirements: this.formBuilder.array([]),
     });
   }
 
   onSubmit() {
-    if (this.myForm.valid) {
-      console.log(this.myForm.value);
+    if (this.enquiryForm.valid) {
+      console.log('Form values:', this.enquiryForm.value);
+      //this.downloadBrochure();
+    } else {
+      console.log('Form is invalid');
     }
   }
 
-  submit() {
-    const scriptURL =
-      'https://script.google.com/macros/s/AKfycbzFnwx06IhmDnsTd3X1l4r8YIbsKjakkhoDaOLeeADrEntemB8a4m5_ddzG8oeO0nqcqA/exec';
-    const requestBody = {
-      name: this.name,
-      contactNumber: this.contactNumber,
-      email: this.email,
-      date: Date.now,
-    };
-    console.log(requestBody);
+  downloadBrochure() {
+    console.log('Downloading brochure...');
+    const link = document.createElement('a');
+    link.setAttribute('type', 'hidden');
+    link.href = 'assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf';
+    link.download = 'BALMUKUND_GLORY_BROCHURE.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
-    // let requestBody = new FormData(form);
-    //   fetch(scriptURL, { method: 'POST', body: requestBody })
-    //     .then((response) => {
-    //       alert('Success! :' + response);
-    //     })
-    //     .catch((error) => {
-    //       alert('Error! :' + error.message);
-    //     });
+  updateRequirements(event: any, value: string) {
+    const requirements = this.enquiryForm.get('requirements') as FormArray;
+
+    if (event.target.checked) {
+      requirements.push(this.formBuilder.control(value));
+    } else {
+      const index = requirements.value.indexOf(value);
+      if (index !== -1) {
+        requirements.removeAt(index);
+      }
+    }
+  }
+
+  getErrorMessage() {
+    const errors = [];
+    const nameControl = this.enquiryForm.get('name');
+    const contactNumberControl = this.enquiryForm.get('contactNumber');
+    const emailControl = this.enquiryForm.get('email');
+
+    if (nameControl?.invalid && nameControl?.touched) {
+      errors.push('Name is required');
+    }
+    if (contactNumberControl?.invalid && contactNumberControl?.touched) {
+      errors.push('Contact Number is required');
+    }
+    if (emailControl?.invalid && emailControl?.touched) {
+      if (emailControl?.errors?.['required']) {
+        errors.push('Email is required');
+      }
+      if (emailControl?.errors?.['email']) {
+        errors.push('Invalid email format');
+      }
+    }
+
+    return errors.join(', ');
   }
 }

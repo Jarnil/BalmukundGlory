@@ -14,59 +14,127 @@
     </div>
     <div class="enquiry-container">
       <h2>Quick Enquiry</h2>
-      <span class="p-input-icon-left">
-        <i class="pi pi-user" style="font-size: 1rem"></i>
-        <input type="text" pInputText placeholder="Name" />
-      </span>
-      <span class="p-input-icon-left">
-        <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
-        <input type="text" pInputText placeholder="Contact Number" />
-      </span>
-      <span class="p-input-icon-left">
-        <i class="pi pi-at" style="font-size: 1rem"></i>
-        <input type="email" pInputText placeholder="Email" />
-      </span>
-      <span class="p-input-icon-left">
-        <i class="pi pi-check-square" style="font-size: 1rem"></i>
-        <input type="occupation" pInputText placeholder="Occupation" />
-      </span>
-      <span class="p-input-icon-left">
-        <i class="pi pi-home" style="font-size: 1rem"></i>
-        <input type="address" pInputText placeholder="Address" />
-      </span>
-      <div class="flex flex-wrap gap-3">
-        <div class="flex align-items-center">
-          <p-radioButton
-            name="pizza"
-            value="Cheese"
-            inputId="ingredient1"
-          ></p-radioButton>
-          <label for="ingredient1" class="ml-2">2 BHK</label>
+      <form [formGroup]="enquiryForm" class="enquiry-form">
+        <div
+          class="form-input"
+          [ngClass]="{
+            'p-invalid':
+              enquiryForm.get('name')?.invalid &&
+              enquiryForm.get('name')?.touched
+          }"
+        >
+          <span class="p-input-icon-left">
+            <i class="pi pi-user" style="font-size: 1rem"></i>
+            <input
+              type="text"
+              pInputText
+              placeholder="Name"
+              formControlName="name"
+            />
+          </span>
         </div>
 
-        <div class="flex align-items-center">
-          <p-radioButton
-            name="pizza"
-            value="Mushroom"
-            inputId="ingredient2"
-          ></p-radioButton>
-          <label for="ingredient2" class="ml-2">3 BHK</label>
+        <div
+          class="form-input"
+          [ngClass]="{
+            'p-invalid':
+              enquiryForm.get('contactNumber')?.invalid &&
+              enquiryForm.get('contactNumber')?.touched
+          }"
+        >
+          <span class="p-input-icon-left">
+            <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
+            <input
+              type="text"
+              pInputText
+              placeholder="Contact Number"
+              formControlName="contactNumber"
+            />
+          </span>
         </div>
-        <div class="flex align-items-center">
-          <p-radioButton
-            name="pizza"
-            value="Mushroom"
-            inputId="ingredient2"
-          ></p-radioButton>
-          <label for="ingredient2" class="ml-2">Shop</label>
+
+        <div
+          class="form-input"
+          [ngClass]="{
+            'p-invalid':
+              enquiryForm.get('email')?.invalid &&
+              enquiryForm.get('email')?.touched
+          }"
+        >
+          <span class="p-input-icon-left">
+            <i class="pi pi-at" style="font-size: 1rem"></i>
+            <input
+              type="email"
+              pInputText
+              placeholder="Email"
+              formControlName="email"
+            />
+          </span>
         </div>
-      </div>
-      <a
-        href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
-        download="BALMUKUND_GLORY_BROCHURE.pdf"
-        class="brochure-button"
-        ><p-button label="Download Brochure"></p-button
-      ></a>
+
+        <div class="form-input">
+          <span class="p-input-icon-left">
+            <i class="pi pi-check-square" style="font-size: 1rem"></i>
+            <input
+              type="occupation"
+              pInputText
+              placeholder="Occupation"
+              formControlName="occupation"
+            />
+          </span>
+        </div>
+
+        <div class="form-input">
+          <span class="p-input-icon-left">
+            <i class="pi pi-home" style="font-size: 1rem"></i>
+            <input
+              type="address"
+              pInputText
+              placeholder="Address"
+              formControlName="address"
+            />
+          </span>
+        </div>
+
+        <div class="checkbox-buttons">
+          <div class="2bhk">
+            <input
+              type="checkbox"
+              id="2BHK"
+              (change)="updateRequirements($event, '2BHK')"
+            />
+            <label for="2BHK">2 BHK</label>
+          </div>
+          <div class="3bhk">
+            <input
+              type="checkbox"
+              id="3BHK"
+              (change)="updateRequirements($event, '3BHK')"
+            />
+            <label for="3BHK">3 BHK</label>
+          </div>
+          <div class="shop">
+            <input
+              type="checkbox"
+              id="Shop"
+              (change)="updateRequirements($event, 'Shop')"
+            />
+            <label for="Shop">Shop</label>
+          </div>
+        </div>
+        <div
+          *ngIf="!enquiryForm.valid && enquiryForm.touched"
+          class="error-message"
+        >
+          <span class="invalid-message">{{ getErrorMessage() }}</span>
+        </div>
+
+        <p-button
+          label="Download Brochure"
+          [disabled]="!enquiryForm.valid"
+          (click)="onSubmit()"
+        ></p-button>
+      </form>
     </div>
   </div>
 </div>

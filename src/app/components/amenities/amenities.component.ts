@@ -23,7 +23,7 @@ export class AmenitiesComponent {
         numScroll: 5,
       },
       {
-        breakpoint: '880px',
+        breakpoint: '900px',
         numVisible: 3,
         numScroll: 3,
       },

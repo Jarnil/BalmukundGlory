@@ -5,7 +5,7 @@
       "image": "assets/images/amenities/club_house.png"
     },
     {
-      "name": "Indoor Game Zone",
+      "name": "Indoor Games",
       "image": "assets/images/amenities/indoor_games.png"
     },
     {
@@ -61,7 +61,7 @@
       "image": "assets/images/amenities/fire_safety.png"
     },
     {
-      "name": "Provision of Gas Line",
+      "name": "Gas Line Provision",
       "image": "assets/images/amenities/gas_line.png"
     },
     {

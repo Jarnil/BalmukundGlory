@@ -30,13 +30,13 @@ export class EnquiryComponent {
   onSubmit() {
     if (this.enquiryForm.valid) {
       console.log('Form values:', this.enquiryForm.value);
-      //this.downloadBrochure();
+      this.downloadBrochure();
     } else {
       let errors = this.getErrorMessage();
       let errorMessage = '';
       if (errors && errors.length > 0) {
         errors.forEach((error) => {
-          errorMessage = '- ' + error + '\n';
+          errorMessage = errorMessage + '- ' + error + '\n';
         });
         alert(errorMessage);
       }
@@ -73,13 +73,13 @@ export class EnquiryComponent {
     const contactNumberControl = this.enquiryForm.get('contactNumber');
     const emailControl = this.enquiryForm.get('email');
 
-    if (nameControl?.invalid && nameControl?.touched) {
+    if (nameControl?.invalid) {
       errors.push('Name is required');
     }
-    if (contactNumberControl?.invalid && contactNumberControl?.touched) {
+    if (contactNumberControl?.invalid) {
       errors.push('Contact Number is required');
     }
-    if (emailControl?.invalid && emailControl?.touched) {
+    if (emailControl?.invalid) {
       if (emailControl?.errors?.['required']) {
         errors.push('Email is required');
       }

@@ -9,11 +9,11 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'BalmukundGlory';
 
-  constructor(private ngxService: NgxUiLoaderService) {}
-
-  ngOnInit() {
+  constructor(private ngxService: NgxUiLoaderService) {
     this.ngxService.start();
   }
+
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.ngxService.stop();

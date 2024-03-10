@@ -29,6 +29,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import { DividerModule } from 'primeng/divider';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   NgxUiLoaderConfig,
@@ -93,6 +94,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     FormsModule,
     ScrollTopModule,
     AnimateOnScrollModule,
+    DividerModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
   ],

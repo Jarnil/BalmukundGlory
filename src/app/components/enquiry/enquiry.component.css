@@ -107,6 +107,10 @@ form {
   border-color: red !important;
 }
 
+.divider {
+  display: none;
+}
+
 @media (max-width: 915px) {
   .find-us-container {
     flex-direction: column;
@@ -114,16 +118,30 @@ form {
   }
 
   .map {
-    width: 90%;
+    width: 100%;
   }
 
   .enquiry-container {
-    width: 90%;
+    width: 100%;
   }
+
+  .divider {
+    display: block;
+    width: 80%;
+  }
+
+  h2, :host ::ng-deep.p-button {
+    margin: 30px 0;
+  } 
 }
 
 @media (max-width: 480px) {
   iframe {
     height: 450px;
+  }
+
+  .divider {
+    display: block;
+    width: 90%;
   }
 }

@@ -6,134 +6,80 @@
     <div class="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6168.483098490531!2d72.6473687174005!3d23.177425760231234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b7b0ae31f23%3A0x9d9d5858872a7dcf!2sBalmukund%20Glory!5e0!3m2!1sen!2sin!4v1709399364488!5m2!1sen!2sin"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+        style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="enquiry-container">
       <h2>Quick Enquiry</h2>
       <form [formGroup]="enquiryForm" class="enquiry-form">
-        <div
-          class="form-input"
-          [ngClass]="{
+        <div class="form-input" [ngClass]="{
             'p-invalid':
               enquiryForm.get('name')?.invalid &&
               enquiryForm.get('name')?.touched
-          }"
-        >
+          }">
           <span class="p-input-icon-left">
             <i class="pi pi-user" style="font-size: 1rem"></i>
-            <input
-              type="text"
-              pInputText
-              placeholder="Name"
-              formControlName="name"
-            />
+            <input type="text" pInputText placeholder="Name" formControlName="name" />
           </span>
         </div>
 
-        <div
-          class="form-input"
-          [ngClass]="{
+        <div class="form-input" [ngClass]="{
             'p-invalid':
               enquiryForm.get('contactNumber')?.invalid &&
               enquiryForm.get('contactNumber')?.touched
-          }"
-        >
+          }">
           <span class="p-input-icon-left">
             <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
-            <input
-              type="text"
-              pInputText
-              placeholder="Contact Number"
-              formControlName="contactNumber"
-            />
+            <input type="text" pInputText placeholder="Contact Number" formControlName="contactNumber" />
           </span>
         </div>
 
-        <div
-          class="form-input"
-          [ngClass]="{
+        <div class="form-input" [ngClass]="{
             'p-invalid':
               enquiryForm.get('email')?.invalid &&
               enquiryForm.get('email')?.touched
-          }"
-        >
+          }">
           <span class="p-input-icon-left">
             <i class="pi pi-at" style="font-size: 1rem"></i>
-            <input
-              type="email"
-              pInputText
-              placeholder="Email"
-              formControlName="email"
-            />
+            <input type="email" pInputText placeholder="Email" formControlName="email" />
           </span>
         </div>
 
         <div class="form-input">
           <span class="p-input-icon-left">
             <i class="pi pi-check-square" style="font-size: 1rem"></i>
-            <input
-              type="occupation"
-              pInputText
-              placeholder="Occupation"
-              formControlName="occupation"
-            />
+            <input type="occupation" pInputText placeholder="Occupation" formControlName="occupation" />
           </span>
         </div>
 
         <div class="form-input">
           <span class="p-input-icon-left">
             <i class="pi pi-home" style="font-size: 1rem"></i>
-            <input
-              type="address"
-              pInputText
-              placeholder="Address"
-              formControlName="address"
-            />
+            <input type="address" pInputText placeholder="Address" formControlName="address" />
           </span>
         </div>
 
         <div class="checkbox-buttons">
           <div class="2bhk">
-            <input
-              type="checkbox"
-              id="2BHK"
-              (change)="updateRequirements($event, '2BHK')"
-            />
+            <input type="checkbox" id="2BHK" (change)="updateRequirements($event, '2BHK')" />
             <label for="2BHK">2 BHK</label>
           </div>
           <div class="3bhk">
-            <input
-              type="checkbox"
-              id="3BHK"
-              (change)="updateRequirements($event, '3BHK')"
-            />
+            <input type="checkbox" id="3BHK" (change)="updateRequirements($event, '3BHK')" />
             <label for="3BHK">3 BHK</label>
           </div>
           <div class="shop">
-            <input
-              type="checkbox"
-              id="Shop"
-              (change)="updateRequirements($event, 'Shop')"
-            />
+            <input type="checkbox" id="Shop" (change)="updateRequirements($event, 'Shop')" />
             <label for="Shop">Shop</label>
           </div>
         </div>
-        <div
+        <!-- <div
           *ngIf="!enquiryForm.valid && enquiryForm.touched"
           class="error-message"
         >
           <span class="invalid-message">{{ getErrorMessage() }}</span>
-        </div>
+        </div> -->
 
-        <p-button
-          label="Download Brochure"
-          [disabled]="!enquiryForm.valid"
-          (click)="onSubmit()"
-        ></p-button>
+        <p-button label="Download Brochure" [disabled]="!enquiryForm.valid" (click)="onSubmit()"></p-button>
       </form>
     </div>
   </div>

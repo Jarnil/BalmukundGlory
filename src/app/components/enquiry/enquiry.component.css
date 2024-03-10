@@ -4,14 +4,14 @@
 
 h1 {
   width: 250px;
-  color : #142D4C;
+  color: #142D4C;
 }
 
 h2 {
-  color : #142D4C;
+  color: #142D4C;
 }
 
-.heading{
+.heading {
   margin: 0px 0px 30px;
 }
 
@@ -31,7 +31,7 @@ iframe {
 
 .enquiry-container {
   background-color: #f1f1f1;
-  width: 40% ;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,16 +107,23 @@ form {
   border-color: red !important;
 }
 
-/* @media (min-width: 480px) and  (max-width: 915px) {
+@media (max-width: 915px) {
   .find-us-container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .map{
-    width: 100%;
+  .map {
+    width: 90%;
   }
 
   .enquiry-container {
-    width: 100%;
+    width: 90%;
   }
-} */
+}
+
+@media (max-width: 480px) {
+  iframe {
+    height: 450px;
+  }
+}

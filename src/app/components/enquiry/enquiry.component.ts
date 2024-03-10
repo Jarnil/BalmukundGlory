@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-enquiry',
@@ -31,7 +32,14 @@ export class EnquiryComponent {
       console.log('Form values:', this.enquiryForm.value);
       //this.downloadBrochure();
     } else {
-      console.log('Form is invalid');
+      let errors = this.getErrorMessage();
+      let errorMessage = '';
+      if (errors && errors.length > 0) {
+        errors.forEach((error) => {
+          errorMessage = '- ' + error + '\n';
+        });
+        alert(errorMessage);
+      }
     }
   }
 
@@ -80,6 +88,6 @@ export class EnquiryComponent {
       }
     }
 
-    return errors.join(', ');
+    return errors;
   }
 }

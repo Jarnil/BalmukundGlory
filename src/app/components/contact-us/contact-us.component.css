@@ -1,17 +1,21 @@
 .contact-us {
-    /* padding: 30px 50px; */
-    padding: 0px 50px;
-    display: flex;
-    align-items: center;
+    padding: 50px;
+    position: relative;
 }
 
 .heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #142D4C;
     margin: 0;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1000;
+}
+
+.contact-container {
+    display: flex;
 }
 
 .image-container {
@@ -32,11 +36,11 @@ a {
 
 .content {
     display: flex;
-    flex-direction: column;
     width: 60%;
     gap: 50px;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .cards {
@@ -45,7 +49,6 @@ a {
 }
 .p-ripple .p-ink {
     background: rgba(0, 0, 0, .3);
-    z-index: -1000;
 }
 
 .card {
@@ -54,17 +57,11 @@ a {
     height: 220px;
     padding: 20px;
     border-radius: 7px;
-    z-index: 1;
 }
 
 i {
     margin: 0 10px;
 }
-
-/* h3 {
-    margin: 10px 0;
-    color: #142D4C;
-}  */
 
 h2 , p {
     color: #142D4C;
@@ -79,6 +76,5 @@ h2 , p {
 }
 
 .pi-instagram:hover {
-    /* color: #316FF6 */
     color:#cc2366;
 }

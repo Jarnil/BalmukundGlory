@@ -1,5 +1,5 @@
 .enquiry {
-  padding: 50px 0px;
+  padding-top: 50px;
 }
 
 h1 {
@@ -9,7 +9,6 @@ h1 {
 
 h2 {
   color : #142D4C;
-  /* margin-bottom: 0; */
 }
 
 .heading{
@@ -40,7 +39,7 @@ iframe {
 }
 
 input {
-  width: 350px;
+  width: 100%;
 }
 
 input:hover {
@@ -107,3 +106,17 @@ form {
 .p-invalid input {
   border-color: red !important;
 }
+
+/* @media (min-width: 480px) and  (max-width: 915px) {
+  .find-us-container {
+    flex-direction: column;
+  }
+
+  .map{
+    width: 100%;
+  }
+
+  .enquiry-container {
+    width: 100%;
+  }
+} */

@@ -28,6 +28,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   NgxUiLoaderConfig,
@@ -91,6 +92,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     InputTextModule,
     FormsModule,
     ScrollTopModule,
+    AnimateOnScrollModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
   ],

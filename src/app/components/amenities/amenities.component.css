@@ -72,10 +72,10 @@
 @media (min-width: 480px) and  (max-width: 915px) {
   h3 {
     text-align: center;
-}
+  }
 
-.heading p {
+  .heading p {
     width: 100%;
     text-align: justify;
-}
+  }
 }

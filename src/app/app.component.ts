@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
@@ -6,15 +6,16 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'BalmukundGlory';
 
   constructor(private ngxService: NgxUiLoaderService) {}
 
   ngOnInit() {
     this.ngxService.start();
-    setTimeout(() => {
-      this.ngxService.stop();
-    }, 5000);
+  }
+
+  ngAfterViewInit() {
+    this.ngxService.stop();
   }
 }

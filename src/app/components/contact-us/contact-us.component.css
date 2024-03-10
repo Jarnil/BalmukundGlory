@@ -16,13 +16,15 @@ svg {
 
 .contact-container {
     display: flex;
+    margin-top: 20px;
+    column-gap: 20px;
 }
 
 .image-container {
-    width: 40%;
+    width: 65%;
 }
 
-img{
+img {
     aspect-ratio: 1/1;
     width: 100%;
     object-fit: fill;
@@ -47,14 +49,15 @@ a {
     display: flex;
     gap: 30px;
 }
+
 .p-ripple .p-ink {
     background: rgba(0, 0, 0, .3);
 }
 
 .card {
     text-align: center;
-    width: 400px;
-    height: 220px;
+    width: 100%;
+    /* height: 220px; */
     padding: 20px;
     border-radius: 7px;
 }
@@ -63,11 +66,13 @@ i {
     margin: 0 10px;
 }
 
-h2 , p {
+h2,
+p {
     color: #142D4C;
 }
 
-.pi-instagram, .pi-facebook {
+.pi-instagram,
+.pi-facebook {
     font-size: 1.5rem;
 }
 
@@ -76,5 +81,28 @@ h2 , p {
 }
 
 .pi-instagram:hover {
-    color:#cc2366;
+    color: #cc2366;
+}
+
+@media (max-width: 915px) {
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+
+    .image-container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 630px) {
+    .content {
+        width: 100%;
+    }
+
+    .image-container {
+        width: 50%;
+    }
 }

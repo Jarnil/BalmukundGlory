@@ -20,16 +20,26 @@ export class AmenitiesComponent {
       {
         breakpoint: '1400px',
         numVisible: 5,
-        numScroll: 1,
+        numScroll: 5,
       },
       {
-        breakpoint: '1220px',
-        numVisible: 5,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '1100px',
+        breakpoint: '880px',
         numVisible: 3,
+        numScroll: 3,
+      },
+      {
+        breakpoint: '790px',
+        numVisible: 3,
+        numScroll: 3,
+      },
+      {
+        breakpoint: '650px',
+        numVisible: 2,
+        numScroll: 2,
+      },
+      {
+        breakpoint: '515px',
+        numVisible: 1,
         numScroll: 1,
       },
     ];

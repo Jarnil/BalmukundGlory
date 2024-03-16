@@ -27,15 +27,18 @@ import { RippleModule } from 'primeng/ripple';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { DividerModule } from 'primeng/divider';
+import { ToastModule } from 'primeng/toast';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderModule,
   NgxUiLoaderRouterModule,
 } from 'ngx-ui-loader';
+import { MessageService } from 'primeng/api';
 
 const ngxUILoaderConfig: NgxUiLoaderConfig = {
   fastFadeOut: true,
@@ -75,7 +78,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     AmenitiesComponent,
     OdometerComponent,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), MessageService],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
@@ -95,6 +98,8 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     ScrollTopModule,
     AnimateOnScrollModule,
     DividerModule,
+    ToastModule,
+    CheckboxModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
   ],

@@ -98,40 +98,31 @@
         </div>
 
         <div class="checkbox-buttons">
-          <div class="2bhk">
-            <input
-              type="checkbox"
-              id="2BHK"
-              (change)="updateRequirements($event, '2BHK')"
-            />
-            <label for="2BHK">2 BHK</label>
+          <div class="flex align-items-center">
+            <p-checkbox
+              label="2BHK"
+              value="2BHK"
+              formControlName="requirements"
+            ></p-checkbox>
           </div>
-          <div class="3bhk">
-            <input
-              type="checkbox"
-              id="3BHK"
-              (change)="updateRequirements($event, '3BHK')"
-            />
-            <label for="3BHK">3 BHK</label>
+          <div class="flex align-items-center">
+            <p-checkbox
+              label="3BHK"
+              value="3BHK"
+              formControlName="requirements"
+            ></p-checkbox>
           </div>
-          <div class="shop">
-            <input
-              type="checkbox"
-              id="Shop"
-              (change)="updateRequirements($event, 'Shop')"
-            />
-            <label for="Shop">Shop</label>
+          <div class="flex align-items-center">
+            <p-checkbox
+              label="Shops"
+              value="Shops"
+              formControlName="requirements"
+            ></p-checkbox>
           </div>
         </div>
-        <!-- <div
-          *ngIf="!enquiryForm.valid && enquiryForm.touched"
-          class="error-message"
-        >
-          <span class="invalid-message">{{ getErrorMessage() }}</span>
-        </div> -->
-
         <p-button label="Download Brochure" (click)="onSubmit()"></p-button>
       </form>
     </div>
   </div>
 </div>
+<p-toast></p-toast>

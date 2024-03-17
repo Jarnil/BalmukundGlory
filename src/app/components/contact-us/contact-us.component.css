@@ -7,6 +7,10 @@
     margin: 0;
 }
 
+.heading h1{
+    width: 200px;
+}
+
 .contact-container {
     display: flex;
     margin: 20px auto 0;

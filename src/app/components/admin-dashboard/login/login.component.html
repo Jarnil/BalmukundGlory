@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="login-image">
+    <img
+      src="../../../../assets/images/admin/Mobile login-rafiki (1).png"
+      alt=""
+    />
+  </div>
+  <div class="login-form">
+    <form>
+      <img
+        src="../../../../assets/images/logo/Glory_Logo.png"
+        alt=""
+        class="balmukund-logo"
+      />
+      <div class="login-inputs">
+        <div class="email">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            placeholder="johndoe@example.com"
+          />
+
+          <!-- <div
+            *ngIf="
+              loginForm.get('email')?.invalid &&
+              loginForm.get('email')?.errors &&
+              (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('email')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('email')?.hasError('email')"
+            >
+              Please enter valid email.
+            </small>
+          </div> -->
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="*******"
+          />
+          <!-- <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.errors &&
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('password')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('password')?.hasError('minLength')"
+            >
+              Password should atleast contain 6 characters.
+            </small>
+          </div> -->
+        </div>
+      </div>
+      <div class="login-buttons">
+        <!-- <button type="submit" [disabled]="loginForm.invalid">Submit</button> -->
+        <p-button label="Login"></p-button>
+        <p-button label="Cancel"></p-button>
+      </div>
+    </form>
+  </div>
+</div>

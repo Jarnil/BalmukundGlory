@@ -1,4 +1,4 @@
-<ngx-ui-loader></ngx-ui-loader>
+<!-- <ngx-ui-loader></ngx-ui-loader>
 <app-header></app-header>
 <app-home-page></app-home-page>
 <app-about-us></app-about-us>
@@ -7,4 +7,20 @@
 <app-gallery></app-gallery>
 <app-enquiry></app-enquiry>
 <app-contact-us></app-contact-us>
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+<ngx-ui-loader></ngx-ui-loader>
+<ng-container *ngIf="isAdminPage; else mainContent">
+  <app-login></app-login>
+</ng-container>
+<ng-template #mainContent>
+  <app-header></app-header>
+  <app-home-page></app-home-page>
+  <app-about-us></app-about-us>
+  <app-about-project></app-about-project>
+  <app-amenities></app-amenities>
+  <app-gallery></app-gallery>
+  <app-enquiry></app-enquiry>
+  <app-contact-us></app-contact-us>
+  <app-footer></app-footer>
+</ng-template>

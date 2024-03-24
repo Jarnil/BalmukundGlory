@@ -68,6 +68,10 @@ input[type="checkbox"]:checked {
   border: none;
 }
 
+:host ::ng-deep .p-button:focus {
+  box-shadow: none;
+}
+
 :host ::ng-deep.p-checkbox .p-checkbox-box.p-highlight {
   border-color: #142D4C;
   background: #142D4C;
@@ -81,25 +85,6 @@ input[type="checkbox"]:checked {
 :host ::ng-deep.p-checkbox .p-checkbox-box:not(.p-disabled).p-focus {
   box-shadow: none;
 }
-
-/* .p-icon {
-  display: inline-block;
-  color: #f1f1f1;
-} */
-
-/* .p-toast .p-toast-message .p-toast-message-content {
-  padding: 1rem;
-  border-width: 0 0 0 6px;
-  background: #142D4C;
-  color: #f1f1f1;
-} */
-
-/* .p-toast .p-toast-message.p-toast-message-info {
-  background: rgba(219, 234, 254, 0.7);
-  border: solid #3b82f6;
-  border-width: 0 0 0 6px;
-  color: #3b82f6;
-} */
 
 form {
   display: flex;

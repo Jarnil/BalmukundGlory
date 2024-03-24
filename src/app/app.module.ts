@@ -12,7 +12,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutProjectComponent } from './components/about-project/about-project.component';
 import { AmenitiesComponent } from './components/amenities/amenities.component';
 import { EnquiryComponent } from './components/enquiry/enquiry.component';
-import { OdometerComponent } from './components/odometer/odometer.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
@@ -39,6 +38,7 @@ import {
   NgxUiLoaderRouterModule,
 } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
+import { LoginComponent } from './components/admin-dashboard/login/login.component';
 
 const ngxUILoaderConfig: NgxUiLoaderConfig = {
   fastFadeOut: true,
@@ -76,7 +76,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     AboutProjectComponent,
     EnquiryComponent,
     AmenitiesComponent,
-    OdometerComponent,
+    LoginComponent,
   ],
   providers: [provideClientHydration(), MessageService],
   bootstrap: [AppComponent],

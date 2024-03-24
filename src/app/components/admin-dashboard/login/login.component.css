@@ -1,0 +1,131 @@
+.container {
+    display: flex;
+    background-color: #f1f1f1;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+  }
+  
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0px;
+  }
+  
+  h1,
+  label {
+    color: #142D4C;
+  }
+  
+  .login-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+  }
+  
+  img {
+    width: 80%;
+  }
+  
+  .login-form {
+    width: 40%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .balmukund-logo {
+    text-align: center;
+    height: auto;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+  
+  input {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border: 1px solid #142D4C;
+  }
+  
+  label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .login-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  
+  .email,
+  .password {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+  }
+  
+  .login-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  button {
+    background-color: #142D4C;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #142D4C;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: #142D4C;
+    border: 1px solid #142D4C;
+  }
+  
+  button:disabled,
+  button[disabled] {
+    border: none;
+    background-color: #cccccc;
+    color: #142D4C;
+  }
+  
+  .login-links {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  a {
+    width: 12%;
+  }
+  
+  .facebook img {
+    border-radius: 50%;
+  }
+  .text-danger {
+    color: red;
+  }
+  
+  :host ::ng-deep .p-button {
+    width: 100%;
+    margin: 10px 0;
+    background: #142D4C;
+    border: none;
+  }
+  
+  :host ::ng-deep .p-button:focus {
+    box-shadow: none;
+  }
+

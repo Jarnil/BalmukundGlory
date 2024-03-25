@@ -11,24 +11,24 @@
       amenities is crafted to elevate your lifestyle to new heights.
     </p>
   </div>
-  <div class="amenities-container">
-    <p-carousel
-      [value]="amenities"
-      [numVisible]="5"
-      [numScroll]="5"
-      [circular]="true"
-      [responsiveOptions]="responsiveOptions"
-    >
-      <ng-template let-amenity pTemplate="item">
-        <div class="card">
-          <div class="image-container">
-            <img src="{{ amenity.image }}" alt="" />
-          </div>
-          <div class="name">
-            <h4>{{ amenity.name }}</h4>
-          </div>
+</div>
+<div class="amenities-container">
+  <p-carousel
+    [value]="amenities"
+    [numVisible]="5"
+    [numScroll]="5"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-amenity pTemplate="item">
+      <div class="card">
+        <div class="image-container">
+          <img src="{{ amenity.image }}" alt="" />
         </div>
-      </ng-template>
-    </p-carousel>
-  </div>
+        <div class="name">
+          <h4>{{ amenity.name }}</h4>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
 </div>

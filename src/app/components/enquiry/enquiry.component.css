@@ -39,7 +39,8 @@ iframe {
 }
 
 input {
-  width: 100%;
+  width: 300px;
+  margin: 10px 0;
 }
 
 input:hover {
@@ -92,15 +93,11 @@ form {
   align-items: center;
 }
 
-.form-input {
-  margin: 10px 0;
-}
-
 .checkbox-buttons {
   display: flex;
   width: 350px;
   margin: 10px 0;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .invalid-message {

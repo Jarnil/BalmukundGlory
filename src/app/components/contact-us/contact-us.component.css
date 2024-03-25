@@ -124,3 +124,8 @@ p {
     }
 }
 
+@media (max-width: 480) {
+    .contact-us{
+        padding: 50px 30px;
+    }
+}

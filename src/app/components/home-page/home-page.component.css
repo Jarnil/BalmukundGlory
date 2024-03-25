@@ -27,4 +27,13 @@ video {
   }
 }
 
-
+@media (max-width: 480px) {
+  :host ::ng-deep .custom-scrolltop {
+    width: 2.5rem;
+    height: 2.5rem;
+  
+    .p-scrolltop-icon {
+      font-size: 1rem;
+    }
+  }
+}

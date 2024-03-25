@@ -62,6 +62,10 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  .gallery {
+    padding: 50px 30px ;
+  }
+
   .gallery-image {
     width: 100%;
   }

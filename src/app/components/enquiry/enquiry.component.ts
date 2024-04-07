@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
 class EnquiryData {
   name!: string;
-  contact!: string;
+  contactNumber!: string;
   email!: string;
   occupation: string;
   address: string;
-  requirements: Array<String>;
+  requirement: Array<String>;
 
   constructor() {
     this.name = '';
-    this.contact = '';
+    this.contactNumber = '';
     this.occupation = '';
     this.email = '';
     this.address = '';
-    this.requirements = [];
+    this.requirement = [];
   }
 }
 
@@ -30,7 +31,11 @@ export class EnquiryComponent {
   optionsArray: Array<string> = [];
   public enquiryData!: EnquiryData;
   public isSubmit: boolean = false;
-  constructor(private messageService: MessageService) {}
+
+  constructor(
+    private messageService: MessageService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.optionsArray = ['2BHK', '3BHK', 'SHOPS'];
@@ -38,7 +43,7 @@ export class EnquiryComponent {
   }
 
   addRemoveOptions(option: string) {
-    let requirements = this.enquiryData.requirements;
+    let requirements = this.enquiryData.requirement;
     if (!requirements.includes(option)) {
       requirements.push(option);
     } else {
@@ -52,40 +57,76 @@ export class EnquiryComponent {
     return false;
   }
 
+  // isEmailInvalid() {
+  //   if (this.enquiryData.email == '' && this.isSubmit) return true;
+  //   return false;
+  // }
+  // isContactInvalid() {
+  //   if (this.enquiryData.contactNumber == '' && this.isSubmit) return true;
+  //   return false;
+  // }
+
   isEmailInvalid() {
-    if (this.enquiryData.name == '' && this.isSubmit) return true;
+    if (this.isSubmit) {
+      if (
+        !this.enquiryData.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+      ) {
+        return true;
+      }
+    }
     return false;
   }
 
   isContactInvalid() {
-    if (this.enquiryData.name == '' && this.isSubmit) return true;
+    if (this.isSubmit) {
+      if (!this.enquiryData.contactNumber.match(/^\d{10}$/)) {
+        return true;
+      }
+    }
     return false;
   }
 
   validateData() {
     if (
       this.enquiryData.name == '' ||
-      this.enquiryData.contact == '' ||
+      this.enquiryData.contactNumber == '' ||
       this.enquiryData.email == '' ||
-      this.enquiryData.requirements.length <= 0 ||
-      this.enquiryData.requirements.length > 3
+      this.enquiryData.requirement.length <= 0 ||
+      this.enquiryData.requirement.length > 3
     ) {
       return false;
     }
+
+    this.isEmailInvalid();
+    this.isContactInvalid();
+
     return true;
   }
 
   onSubmit() {
     this.isSubmit = true;
     if (this.validateData()) {
-      console.log('Form values:', this.enquiryData);
       // this.downloadBrochure();
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Brochure downloaded.',
-        detail:
-          'We appreciate your interest and will respond to your inquiry promptly.',
-      });
+      var response = this.addEnquiry(this.enquiryData).subscribe(
+        (response) => {
+          console.log('Received response:', response);
+          this.downloadBrochure();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Brochure downloaded.',
+            detail:
+              'We appreciate your interest and will respond to your inquiry promptly.',
+          });
+        },
+        (error) => {
+          console.error('Error:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error!',
+            detail: 'Something went wrong while adding enquiry.',
+          });
+        }
+      );
     } else {
       this.messageService.add({
         severity: 'info',
@@ -105,5 +146,9 @@ export class EnquiryComponent {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  addEnquiry(enquiry: EnquiryData): Observable<any> {
+    return this.http.post<any>('https://localhost:7220/api/enquiry', enquiry);
   }
 }

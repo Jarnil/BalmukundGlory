@@ -1,25 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
-
-class EnquiryData {
-  name!: string;
-  contactNumber!: string;
-  email!: string;
-  occupation: string;
-  address: string;
-  requirement: Array<String>;
-
-  constructor() {
-    this.name = '';
-    this.contactNumber = '';
-    this.occupation = '';
-    this.email = '';
-    this.address = '';
-    this.requirement = [];
-  }
-}
+import { Enquiry } from '../../interface/Enquiry';
+import { EnquiryService } from '../../services/enquiry.service';
 
 @Component({
   selector: 'app-enquiry',
@@ -29,17 +11,24 @@ class EnquiryData {
 export class EnquiryComponent {
   visible: boolean = false;
   optionsArray: Array<string> = [];
-  public enquiryData!: EnquiryData;
+  public enquiryData!: Enquiry;
   public isSubmit: boolean = false;
 
   constructor(
-    private messageService: MessageService,
-    private http: HttpClient
+    private enquiryService: EnquiryService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
     this.optionsArray = ['2BHK', '3BHK', 'SHOPS'];
-    this.enquiryData = new EnquiryData();
+    this.enquiryData = {
+      name: '',
+      email: '',
+      contactNumber: '',
+      address: '',
+      occupation: '',
+      requirement: [],
+    };
   }
 
   addRemoveOptions(option: string) {
@@ -106,8 +95,7 @@ export class EnquiryComponent {
   onSubmit() {
     this.isSubmit = true;
     if (this.validateData()) {
-      // this.downloadBrochure();
-      var response = this.addEnquiry(this.enquiryData).subscribe(
+      this.enquiryService.addEnquiry(this.enquiryData).subscribe(
         (response) => {
           console.log('Received response:', response);
           this.downloadBrochure();
@@ -146,9 +134,5 @@ export class EnquiryComponent {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  }
-
-  addEnquiry(enquiry: EnquiryData): Observable<any> {
-    return this.http.post<any>('https://localhost:7220/api/enquiry', enquiry);
   }
 }

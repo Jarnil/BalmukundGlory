@@ -150,4 +150,18 @@ form {
     width: 90%;
   }
 
+  :host ::ng-deep .p-toast-top-right {
+    top: 20px;
+    left: 10px;
+    min-height: 140px;
+    width: 350px;
+  }
+
+  /* For changing color of the toast */
+  /* .p-toast .p-toast-message.p-toast-message-info {
+    background: rgba(219, 234, 254, 0.7);
+    border: solid #3b82f6;
+    border-width: 0 0 0 6px;
+    color: #3b82f6;
+  } */
 }

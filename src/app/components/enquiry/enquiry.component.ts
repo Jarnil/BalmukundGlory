@@ -91,6 +91,7 @@ export class EnquiryComponent {
         severity: 'info',
         summary: 'Please fill out required fields.',
         detail: 'Name, Contact Number, Email And Requirement',
+        sticky: true,
       });
     }
   }

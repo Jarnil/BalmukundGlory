@@ -103,7 +103,7 @@ export class EnquiryComponent {
             severity: 'success',
             summary: 'Brochure downloaded.',
             detail:
-              'We appreciate your interest and will respond to your inquiry promptly.',
+              'We appreciate your interest and will respond to your enquiry promptly.',
           });
         },
         (error) => {
@@ -111,7 +111,8 @@ export class EnquiryComponent {
           this.messageService.add({
             severity: 'error',
             summary: 'Error!',
-            detail: 'Something went wrong while adding enquiry.',
+            detail:
+              'Something went wrong while adding enquiry. Please try again!',
           });
         }
       );

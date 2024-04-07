@@ -13,7 +13,7 @@ import { AboutProjectComponent } from './components/about-project/about-project.
 import { AmenitiesComponent } from './components/amenities/amenities.component';
 import { EnquiryComponent } from './components/enquiry/enquiry.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +39,8 @@ import {
 } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
 import { LoginComponent } from './components/admin-dashboard/login/login.component';
+import { DashboardComponent } from './components/admin-dashboard/dashboard/dashboard.component';
+import { TokenService } from './services/token.service';
 
 const ngxUILoaderConfig: NgxUiLoaderConfig = {
   fastFadeOut: true,
@@ -77,6 +79,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     EnquiryComponent,
     AmenitiesComponent,
     LoginComponent,
+    DashboardComponent,
   ],
   providers: [provideClientHydration(), MessageService],
   bootstrap: [AppComponent],

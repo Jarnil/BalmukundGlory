@@ -6,7 +6,7 @@
     />
   </div>
   <div class="login-form">
-    <form>
+    <form [formGroup]="loginForm">
       <img
         src="../../../../assets/images/logo/Glory_Logo.png"
         alt=""
@@ -14,15 +14,16 @@
       />
       <div class="login-inputs">
         <div class="email">
-          <label for="email">Email</label>
+          <label for="email">Email or UserName</label>
           <input
             type="text"
             id="email"
             class="form-control"
-            placeholder="johndoe@example.com"
+            formControlName="email"
+            placeholder="john@example.com"
           />
 
-          <!-- <div
+          <div
             *ngIf="
               loginForm.get('email')?.invalid &&
               loginForm.get('email')?.errors &&
@@ -41,7 +42,7 @@
             >
               Please enter valid email.
             </small>
-          </div> -->
+          </div>
         </div>
         <div class="password">
           <label for="password">Password</label>
@@ -49,9 +50,10 @@
             type="password"
             id="password"
             class="form-control"
+            formControlName="password"
             placeholder="*******"
           />
-          <!-- <div
+          <div
             *ngIf="
               loginForm.get('password')?.invalid &&
               loginForm.get('password')?.errors &&
@@ -71,13 +73,16 @@
             >
               Password should atleast contain 6 characters.
             </small>
-          </div> -->
+          </div>
         </div>
       </div>
       <div class="login-buttons">
-        <!-- <button type="submit" [disabled]="loginForm.invalid">Submit</button> -->
-        <p-button label="Login"></p-button>
-        <p-button label="Cancel"></p-button>
+        <p-button
+          label="Login"
+          [disabled]="loginForm.invalid"
+          (click)="OnSubmit()"
+        ></p-button>
+        <p-button label="Cancel" (click)="onReset()"></p-button>
       </div>
     </form>
   </div>

@@ -61,80 +61,9 @@
     <li>
       <a (click)="showSidebar()" href="#gallery">Gallery</a>
     </li>
-    <li><a (click)="showDialog()">E-Brochure</a></li>
+    <li><a (click)="showSidebar()" href="#enquiry">E-Brochure</a></li>
     <li>
       <a (click)="showSidebar()" href="#contact-us">Contact Us</a>
     </li>
   </div>
 </p-sidebar>
-
-<p-dialog
-  [(visible)]="visible"
-  [modal]="true"
-  header="Quick Enquiry"
-  position="top"
->
-  <div class="brochure-form">
-    <div class="p-field">
-      <span class="p-float-label">
-        <input type="text" pInputText />
-        <label>Name</label>
-      </span>
-    </div>
-    <div class="p-field">
-      <span class="p-float-label">
-        <input type="text" pInputText />
-        <label>Contact Number</label>
-      </span>
-    </div>
-    <div class="p-field">
-      <span class="p-float-label">
-        <input type="text" pInputText />
-        <label>Email</label>
-      </span>
-    </div>
-    <div class="p-field">
-      <span class="p-float-label">
-        <input type="text" pInputText />
-        <label>Occupation</label>
-      </span>
-    </div>
-    <div class="p-field">
-      <span class="p-float-label">
-        <input type="text" pInputText />
-        <label>Address</label>
-      </span>
-    </div>
-    <!-- <span class="p-input-icon-left">
-      <i class="pi pi-user" style="font-size: 1rem"></i>
-      <input type="text" pInputText placeholder="Name" [(ngModel)]="name" />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-whatsapp" style="font-size: 1rem"></i>
-      <input
-        type="text"
-        pInputText
-        placeholder="Contact Number"
-        [(ngModel)]="contactNumber"
-      />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-at" style="font-size: 1rem"></i>
-      <input type="email" pInputText placeholder="Email" [(ngModel)]="email" />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-check-square" style="font-size: 1rem"></i>
-      <input type="occupation" pInputText placeholder="Occupation" />
-    </span>
-    <span class="p-input-icon-left">
-      <i class="pi pi-home" style="font-size: 1rem"></i>
-      <input type="address" pInputText placeholder="Address" />
-    </span> -->
-    <a
-      href="assets/brochure/BALMUKUND_GLORY_BROCHURE.pdf"
-      download="BALMUKUND_GLORY_BROCHURE.pdf"
-      class="brochure-button"
-      ><p-button label="Download Brochure" (onClick)="submit()"></p-button
-    ></a>
-  </div>
-</p-dialog>

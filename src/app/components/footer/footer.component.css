@@ -15,6 +15,9 @@
     font-size: 24px;
     color: #e7e2ff;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .copyright {
@@ -26,4 +29,11 @@
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 20px;
+  }
 }

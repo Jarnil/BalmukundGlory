@@ -139,10 +139,10 @@ background-color: #142D4C;
     width: 80%;
   }
 
-  .flip-card {
+  /* .flip-card {
     width: 80%;
     height: 400px;
-  }
+  } */
 
   .card-container {
     width: 100%;
@@ -158,6 +158,15 @@ background-color: #142D4C;
 
   .intro p {
     text-align: justify;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .flip-card {
+    width: 70%;
+    height: 350px;
   }
 }
 

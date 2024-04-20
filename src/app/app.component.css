@@ -1,3 +1,24 @@
 h3 {
     margin: 20px auto;
 }
+
+@media (max-width: 480px) {
+    :host ::ng-deep .p-toast-top-right {
+      top: 20px;
+      left: 10px;
+      min-height: 140px;
+      width: 350px;
+    }
+  
+    :host ::ng-deep .p-toast{
+      width: 23rem;
+    }
+
+     /* For changing color of the toast */
+        /* .p-toast .p-toast-message.p-toast-message-info {
+            background: rgba(219, 234, 254, 0.7);
+            border: solid #3b82f6;
+            border-width: 0 0 0 6px;
+            color: #3b82f6;
+        } */
+  }

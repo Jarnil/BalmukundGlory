@@ -4,15 +4,15 @@ h3 {
 
 @media (max-width: 480px) {
     :host ::ng-deep .p-toast-top-right {
-      top: 20px;
-      left: 10px;
+      top: 30px;
+      left: 15px;
       min-height: 140px;
       width: 350px;
     }
-  
+/*   
     :host ::ng-deep .p-toast{
       width: 23rem;
-    }
+    } */
 
      /* For changing color of the toast */
         /* .p-toast .p-toast-message.p-toast-message-info {

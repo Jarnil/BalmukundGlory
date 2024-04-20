@@ -6,7 +6,7 @@ import { DashboardComponent } from './components/admin-dashboard/dashboard/dashb
 
 const routes: Routes = [
   //{ path: '', component: HomePageComponent, pathMatch: 'full' },
-  { path: 'admin', component: LoginComponent },
+  { path: 'admin/login', component: LoginComponent },
   { path: 'admin/dashboard', component: DashboardComponent },
 ];
 

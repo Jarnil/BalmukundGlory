@@ -13,6 +13,7 @@ export class EnquiryComponent {
   optionsArray: Array<string> = [];
   public enquiryData!: Enquiry;
   public isSubmit: boolean = false;
+  public isLoading: boolean = false;
 
   constructor(
     private enquiryService: EnquiryService,
@@ -94,6 +95,7 @@ export class EnquiryComponent {
 
   onSubmit() {
     this.isSubmit = true;
+    this.isLoading = true;
     if (this.validateData()) {
       this.enquiryService.addEnquiry(this.enquiryData).subscribe(
         (response) => {
@@ -105,6 +107,7 @@ export class EnquiryComponent {
             detail:
               'We appreciate your interest and will respond to your enquiry promptly.',
           });
+          this.isLoading = false;
         },
         (error) => {
           console.error('Error:', error);
@@ -114,6 +117,7 @@ export class EnquiryComponent {
             detail:
               'Something went wrong while adding enquiry. Please try again!',
           });
+          this.isLoading = false;
         }
       );
     } else {
@@ -123,6 +127,7 @@ export class EnquiryComponent {
         detail: 'Name, Contact Number, Email And Requirement',
         sticky: true,
       });
+      this.isLoading = false;
     }
   }
 

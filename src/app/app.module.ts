@@ -37,6 +37,10 @@ import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { DividerModule } from 'primeng/divider';
 import { ToastModule } from 'primeng/toast';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CalendarModule } from 'primeng/calendar';
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderModule,
@@ -117,6 +121,10 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     DividerModule,
     ToastModule,
     CheckboxModule,
+    TableModule,
+    ProgressSpinnerModule,
+    TagModule,
+    CalendarModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
   ],

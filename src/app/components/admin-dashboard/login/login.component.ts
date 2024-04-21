@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 export class LoginComponent {
   loginForm!: FormGroup;
   isSubmitted = false;
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -31,6 +32,7 @@ export class LoginComponent {
   }
 
   OnSubmit() {
+    this.isLoading = true;
     if (this.loginForm.valid) {
       let loginRequest = {
         email: this.loginForm.get('email')?.value,
@@ -52,6 +54,7 @@ export class LoginComponent {
             summary: 'Success',
             detail: response.message,
           });
+          this.isLoading = false;
         },
         (err) => {
           console.error('Error:', err);
@@ -67,6 +70,7 @@ export class LoginComponent {
         }
       );
     }
+    this.isLoading = false;
   }
 
   onReset() {

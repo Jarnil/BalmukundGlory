@@ -103,7 +103,12 @@
             <p-checkbox label="Shops" value="Shops" [(ngModel)]="shop"></p-checkbox>
           </div> -->
         </div>
-        <p-button label="Download Brochure" (click)="onSubmit()"></p-button>
+        <p-button
+          [label]="isLoading ? '' : 'Download Brochure'"
+          [icon]="isLoading ? 'pi pi-spin pi-spinner' : ''"
+          [disabled]="isLoading"
+          (click)="onSubmit()"
+        ></p-button>
       </div>
     </div>
   </div>

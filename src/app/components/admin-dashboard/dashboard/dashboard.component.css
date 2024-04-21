@@ -1,0 +1,31 @@
+.header {
+    margin: 0 50px;
+    border: 1px solid black;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.inputs {
+    padding:  25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 5%;
+}
+
+span, .buttons {
+    margin: 10px 0;
+}
+
+.card {
+    margin: 50px;
+    border: 1px solid black;
+}
+
+:host ::ng-deep .p-button {
+    background: #142D4C;
+    border: none;
+    column-gap: 5%;
+}

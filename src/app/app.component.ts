@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.pageType = 1;
         } else if (
           event.url.includes('/admin') &&
-          !event.url.includes('/login')
+          event.url.includes('/dashboard')
         ) {
           // For Admin Dashboard Page
           this.pageType = 2;

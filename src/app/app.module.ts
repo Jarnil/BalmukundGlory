@@ -13,7 +13,12 @@ import { AboutProjectComponent } from './components/about-project/about-project.
 import { AmenitiesComponent } from './components/amenities/amenities.component';
 import { EnquiryComponent } from './components/enquiry/enquiry.component';
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
@@ -81,7 +86,16 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     LoginComponent,
     DashboardComponent,
   ],
-  providers: [provideClientHydration(), MessageService],
+  providers: [
+    provideClientHydration(),
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenService,
+      multi: true,
+    },
+    provideHttpClient(withFetch()),
+  ],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,

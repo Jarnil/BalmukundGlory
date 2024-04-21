@@ -35,6 +35,7 @@ export class TokenService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     let token = localStorage.getItem('token');
+    console.log(token);
     if (token && !this.tokenExpired(token)) {
       let jwtToken = request.clone({
         setHeaders: {

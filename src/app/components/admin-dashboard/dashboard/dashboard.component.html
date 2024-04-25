@@ -2,53 +2,79 @@
   <div class="inputs">
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Name" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Name"
+        [(ngModel)]="enquiryList.columnSearchValue.searchName"
+      />
     </span>
 
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Contact Number" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Contact Number"
+        [(ngModel)]="enquiryList.columnSearchValue.searchContactNumber"
+      />
     </span>
 
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Email" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Email"
+        [(ngModel)]="enquiryList.columnSearchValue.searchEmail"
+      />
     </span>
 
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Occupation" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Occupation"
+        [(ngModel)]="enquiryList.columnSearchValue.searchOccupation"
+      />
     </span>
 
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Address" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Address"
+        [(ngModel)]="enquiryList.columnSearchValue.searchAddress"
+      />
     </span>
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Requirement" />
+      <input
+        type="text"
+        pInputText
+        placeholder="Requirement"
+        [(ngModel)]="enquiryList.columnSearchValue.searchRequirement"
+      />
     </span>
 
     <span>
       <p-calendar
         [iconDisplay]="'input'"
         [showIcon]="true"
-        placeholder="Start Date"
-        dateFormat="dd/mm/yy"
-      ></p-calendar>
+        placeholder="Start Date - End Date"
+        [dateFormat]="'dd/mm/yy'"
+        [readonlyInput]="true"
+        [selectionMode]="'range'"
+        [(ngModel)]="dateRange"
+        (onSelect)="updateDateRange()"
+      >
+      </p-calendar>
     </span>
 
     <span>
-      <p-calendar
-        [iconDisplay]="'input'"
-        [showIcon]="true"
-        placeholder="End Date"
-        dateFormat="dd/mm/yy"
-      ></p-calendar>
-    </span>
-
-    <span>
-      <p-button label="Search"></p-button>
+      <p-button label="Search" (click)="getEnquiryList()"></p-button>
     </span>
     <span>
       <p-button label="Cancel" (click)="onReset()"></p-button>

@@ -11,7 +11,7 @@
     padding:  25px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     column-gap: 5%;
 }
 
@@ -29,3 +29,24 @@ span, .buttons {
     border: none;
     column-gap: 5%;
 }
+
+:host ::ng-deep .p-inputtext, .p-calender{
+    column-gap: 5%;
+    width: 250px;
+}
+
+input:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none;
+    border-color: #142D4C;
+  }
+  
+  :host ::ng-deep .p-button {
+    background: #142D4C;
+    border: none;
+  }
+  
+  :host ::ng-deep .p-button:focus {
+    box-shadow: none;
+  }

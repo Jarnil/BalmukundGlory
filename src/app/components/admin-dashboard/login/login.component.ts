@@ -30,7 +30,6 @@ export class LoginComponent {
       }),
     });
   }
-
   OnSubmit() {
     this.isLoading = true;
     if (this.loginForm.valid) {
@@ -48,7 +47,6 @@ export class LoginComponent {
           localStorage.setItem('token', token);
           localStorage.setItem('userName', userName);
           this.router.navigate(['admin/dashboard']);
-          // this.adminService.isAdminPage = false;
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
@@ -67,11 +65,53 @@ export class LoginComponent {
             summary: 'Error',
             detail: errorMessage,
           });
+          this.isLoading = false;
         }
       );
     }
-    this.isLoading = false;
   }
+
+  // OnSubmit() {
+  //   this.isLoading = true;
+  //   if (this.loginForm.valid) {
+  //     let loginRequest = {
+  //       email: this.loginForm.get('email')?.value,
+  //       password: this.loginForm.get('password')?.value,
+  //     };
+  //     this.authService.login(loginRequest).subscribe(
+  //       (response) => {
+  //         console.log('Login response:', response);
+  //         const email = response.data.email;
+  //         const token = response.data.token;
+  //         const userName = response.data.userName;
+  //         localStorage.setItem('email', email);
+  //         localStorage.setItem('token', token);
+  //         localStorage.setItem('userName', userName);
+  //         this.router.navigate(['admin/dashboard']);
+  //         // this.adminService.isAdminPage = false;
+  //         this.messageService.add({
+  //           severity: 'success',
+  //           summary: 'Success',
+  //           detail: response.message,
+  //         });
+  //         this.isLoading = false;
+  //       },
+  //       (err) => {
+  //         console.error('Error:', err);
+  //         const errorMessage =
+  //           err.error?.class?.message ||
+  //           err.error?.message ||
+  //           'An error occurred while logging in. Please check the credentials and try again!';
+  //         this.messageService.add({
+  //           severity: 'error',
+  //           summary: 'Error',
+  //           detail: errorMessage,
+  //         });
+  //       }
+  //     );
+  //   }
+  //   this.isLoading = false;
+  // }
 
   onReset() {
     this.isSubmitted = false;

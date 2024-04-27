@@ -41,6 +41,7 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CalendarModule } from 'primeng/calendar';
+import { PaginatorModule } from 'primeng/paginator';
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderModule,
@@ -125,6 +126,7 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     ProgressSpinnerModule,
     TagModule,
     CalendarModule,
+    PaginatorModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
   ],

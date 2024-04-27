@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { EnquiryService } from '../../../services/enquiry.service';
 import { EnquiryList } from '../../../interface/Enquiry';
 import { MessageService } from 'primeng/api';
-import { Console } from 'console';
+
+interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +18,8 @@ import { Console } from 'console';
 export class DashboardComponent implements OnInit {
   enquiries: any;
   dateRange!: Date[];
+  first: number = 0;
+  rows: number = 10;
   enquiryList: EnquiryList = {
     pageNo: 0,
     pageSize: 100,
@@ -133,5 +141,10 @@ export class DashboardComponent implements OnInit {
       },
     };
     this.getEnquiryList();
+  }
+
+  onPageChange(event: PageEvent) {
+    this.enquiryList.pageNo = event.first;
+    this.enquiryList.pageSize = event.rows;
   }
 }

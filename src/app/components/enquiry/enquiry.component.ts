@@ -13,7 +13,7 @@ export class EnquiryComponent {
   optionsArray: Array<string> = [];
   public enquiryData!: Enquiry;
   public isSubmit: boolean = false;
-  public isLoading: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private enquiryService: EnquiryService,
@@ -115,7 +115,7 @@ export class EnquiryComponent {
             severity: 'error',
             summary: 'Error!',
             detail:
-              'Something went wrong while adding enquiry. Please try again!',
+              'Something went wrong while downloading brochure. Please try again!',
           });
           this.isLoading = false;
         }
@@ -125,7 +125,6 @@ export class EnquiryComponent {
         severity: 'info',
         summary: 'Please fill out required fields.',
         detail: 'Name, Contact Number, Email And Requirement',
-        sticky: true,
       });
       this.isLoading = false;
     }

@@ -1,19 +1,4 @@
 <ngx-ui-loader></ngx-ui-loader>
-
-<div [ngSwitch]="pageType">
-  <ng-container *ngSwitchCase="0">
-    <app-header></app-header>
-    <app-home-page></app-home-page>
-    <app-about-us></app-about-us>
-    <app-about-project></app-about-project>
-    <app-amenities></app-amenities>
-    <app-gallery></app-gallery>
-    <app-enquiry></app-enquiry>
-    <app-contact-us></app-contact-us>
-    <app-footer></app-footer>
-  </ng-container>
-  <app-login *ngSwitchCase="1"></app-login>
-  <app-dashboard *ngSwitchCase="2"></app-dashboard>
-</div>
-
 <p-toast></p-toast>
+<router-outlet></router-outlet>
+<p-scrollTop styleClass="custom-scrolltop"></p-scrollTop>

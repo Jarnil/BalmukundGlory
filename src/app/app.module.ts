@@ -1,4 +1,9 @@
-import { NgModule } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  NO_ERRORS_SCHEMA,
+  NgModule,
+} from '@angular/core';
+import { RouterModule } from '@angular/router';
 import {
   BrowserModule,
   provideClientHydration,
@@ -15,44 +20,28 @@ import { EnquiryComponent } from './components/enquiry/enquiry.component';
 
 import {
   HTTP_INTERCEPTORS,
-  HttpClientModule,
   provideHttpClient,
   withFetch,
 } from '@angular/common/http';
-import { ButtonModule } from 'primeng/button';
-import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
-import { CardModule } from 'primeng/card';
-import { RippleModule } from 'primeng/ripple';
-import { DialogModule } from 'primeng/dialog';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { DividerModule } from 'primeng/divider';
-import { ToastModule } from 'primeng/toast';
-import { ReactiveFormsModule } from '@angular/forms';
-import { TableModule } from 'primeng/table';
-import { TagModule } from 'primeng/tag';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { CalendarModule } from 'primeng/calendar';
-import { PaginatorModule } from 'primeng/paginator';
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderModule,
   NgxUiLoaderRouterModule,
 } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
-import { LoginComponent } from './components/admin-dashboard/login/login.component';
-import { DashboardComponent } from './components/admin-dashboard/dashboard/dashboard.component';
 import { TokenService } from './services/token.service';
-import { SidebarComponent } from './components/admin-dashboard/sidebar/sidebar.component';
-import { EnquiryTableComponent } from './components/admin-dashboard/enquiry-table/enquiry-table.component';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './components/admin-dashboard/login/login.component';
+import { AdminDashboardModule } from './components/admin-dashboard/admin-dashboard.module';
 
 const ngxUILoaderConfig: NgxUiLoaderConfig = {
   fastFadeOut: true,
@@ -89,11 +78,8 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     FooterComponent,
     AboutProjectComponent,
     EnquiryComponent,
-    EnquiryTableComponent,
     AmenitiesComponent,
     LoginComponent,
-    DashboardComponent,
-    SidebarComponent,
   ],
   providers: [
     provideClientHydration(),
@@ -108,31 +94,20 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    ButtonModule,
-    SidebarModule,
     GalleriaModule,
     CarouselModule,
-    CardModule,
-    RippleModule,
-    DialogModule,
-    InputTextModule,
-    FormsModule,
     ScrollTopModule,
     AnimateOnScrollModule,
     DividerModule,
-    ToastModule,
     CheckboxModule,
-    TableModule,
-    ProgressSpinnerModule,
-    TagModule,
-    CalendarModule,
-    PaginatorModule,
+    SharedModule,
     NgxUiLoaderModule.forRoot(ngxUILoaderConfig),
     NgxUiLoaderRouterModule,
+    AdminDashboardModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

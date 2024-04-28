@@ -48,8 +48,74 @@
 </div>
 
 <p-sidebar [(visible)]="sidebarVisible" position="left" styleClass="w-20rem">
-  <div class="sidebar-links">
+  <div
+    class="flex align-items-center justify-content-between px-4 flex-shrink-0"
+  >
     <li>
+      <a
+        pRipple
+        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      >
+        <img src="../../../../assets/images/logo/Glory_Logo.png" alt="" />
+      </a>
+    </li>
+  </div>
+  <div class="sidebar-links">
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#about-us"
+    >
+      <i class="pi pi-bookmark mr-2"></i>
+      <span class="font-medium">About The Brand</span>
+    </a>
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#about-project"
+    >
+      <i class="pi pi-building mr-2"></i>
+      <span class="font-medium">About Project</span>
+    </a>
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#amenities"
+    >
+      <i class="pi pi-check-square mr-2"></i>
+      <span class="font-medium">Amenities</span>
+    </a>
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#gallery"
+    >
+      <i class="pi pi-image mr-2"></i>
+      <span class="font-medium">Gallery</span>
+    </a>
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#enquiry"
+    >
+      <i class="pi pi-book mr-2"></i>
+      <span class="font-medium">E-Brochure</span>
+    </a>
+    <a
+      pRipple
+      class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      (click)="showSidebar()"
+      href="#contact-us"
+    >
+      <i class="pi pi-phone mr-2"></i>
+      <span class="font-medium">Contact Us</span>
+    </a>
+    <!-- <li>
       <a (click)="showSidebar()" href="#about-us">About The Brand</a>
     </li>
     <li>
@@ -64,6 +130,6 @@
     <li><a (click)="showSidebar()" href="#enquiry">E-Brochure</a></li>
     <li>
       <a (click)="showSidebar()" href="#contact-us">Contact Us</a>
-    </li>
+    </li> -->
   </div>
 </p-sidebar>

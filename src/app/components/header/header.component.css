@@ -61,7 +61,9 @@ a {
   flex-direction: column;
   height: 50%;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
+  margin: 0 40px;
 }
 
  
@@ -159,4 +161,8 @@ input {
 
 :host ::ng-deep .p-dialog.p-dialog-titlebar {
   padding: 1rem;
+}
+
+:host ::ng-deep .p-sidebar .p-sidebar-header {
+  padding: 1.25rem;
 }

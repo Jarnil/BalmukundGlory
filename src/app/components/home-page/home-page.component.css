@@ -15,25 +15,3 @@ video {
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
 }
 
-:host ::ng-deep .custom-scrolltop {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background-color: #142D4C;
-
-  .p-scrolltop-icon {
-    font-size: 1.5rem;
-    color: #CDC9C3;
-  }
-}
-
-@media (max-width: 480px) {
-  :host ::ng-deep .custom-scrolltop {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  :host ::ng-deep .p-scrolltop .p-icon {
-    width: 1rem;
-    height: 1rem;
-}
-}

@@ -1,0 +1,81 @@
+<div class="nav-menu glass" [class.hidden]="!isHeaderVisible" id="navbar">
+  <p-button
+    type="button"
+    class="menu-button"
+    (click)="sidebarVisible = true"
+    [text]="true"
+    severity="secondary"
+    icon="pi pi-bars"
+  >
+  </p-button>
+  <a><img src="../../../assets/images/logo/Glory_Logo.png" alt="" /></a>
+</div>
+
+<div class="card flex justify-content-center">
+  <p-sidebar #sidebarRef [(visible)]="sidebarVisible">
+    <ng-template pTemplate="headless">
+      <div class="flex flex-column h-full">
+        <div
+          class="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0"
+        >
+          <li>
+            <a
+              pRipple
+              class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+            >
+              <img src="../../../../assets/images/logo/Glory_Logo.png" alt="" />
+            </a>
+          </li>
+        </div>
+        <div class="overflow-y-auto">
+          <ul class="list-none p-3 m-0">
+            <li>
+              <ul class="list-none p-0 m-0 overflow-hidden">
+                <li>
+                  <a
+                    pRipple
+                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+                  >
+                    <i class="pi pi-bookmark mr-2"></i>
+                    <span class="font-medium">Enquiries</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    pRipple
+                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+                  >
+                    <i class="pi pi-chart-line mr-2"></i>
+                    <span class="font-medium">Reports</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    pRipple
+                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+                  >
+                    <i class="pi pi-users mr-2"></i>
+                    <span class="font-medium">Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <hr class="mb-3 mx-3 border-top-1 border-none surface-border" />
+          <a
+            pRipple
+            class="m-3 flex align-items-center cursor-pointer p-3 gap-2 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+          >
+            <!-- <p-avatar
+              image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+              shape="circle"
+            /> -->
+            <span class="font-bold">Amy Elsner</span>
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  </p-sidebar>
+</div>

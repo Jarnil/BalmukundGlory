@@ -51,6 +51,8 @@ import { MessageService } from 'primeng/api';
 import { LoginComponent } from './components/admin-dashboard/login/login.component';
 import { DashboardComponent } from './components/admin-dashboard/dashboard/dashboard.component';
 import { TokenService } from './services/token.service';
+import { SidebarComponent } from './components/admin-dashboard/sidebar/sidebar.component';
+import { EnquiryTableComponent } from './components/admin-dashboard/enquiry-table/enquiry-table.component';
 
 const ngxUILoaderConfig: NgxUiLoaderConfig = {
   fastFadeOut: true,
@@ -87,9 +89,11 @@ const ngxUILoaderConfig: NgxUiLoaderConfig = {
     FooterComponent,
     AboutProjectComponent,
     EnquiryComponent,
+    EnquiryTableComponent,
     AmenitiesComponent,
     LoginComponent,
     DashboardComponent,
+    SidebarComponent,
   ],
   providers: [
     provideClientHydration(),

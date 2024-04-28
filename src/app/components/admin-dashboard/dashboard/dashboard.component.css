@@ -20,15 +20,15 @@ span, .buttons {
 }
 
 .card {
-    margin: 50px;
+    margin: 25px 50px;
     border: 1px solid black;
 }
 
-:host ::ng-deep .p-button {
+/* :host ::ng-deep .p-button {
     background: #142D4C;
     border: none;
     column-gap: 5%;
-}
+} */
 
 :host ::ng-deep .p-inputtext, .p-calender{
     column-gap: 5%;
@@ -42,10 +42,10 @@ input:enabled:focus {
     border-color: #142D4C;
   }
   
-  :host ::ng-deep .p-button {
+  /* :host ::ng-deep .p-button {
     background: #142D4C;
     border: none;
-  }
+  } */
   
   :host ::ng-deep .p-button:focus {
     box-shadow: none;

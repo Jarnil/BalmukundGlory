@@ -17,6 +17,7 @@
       <div class="flex flex-column h-full">
         <span>
           <p-button
+            class="close-button"
             type="button"
             (click)="closeCallback($event)"
             icon="pi pi-times"
@@ -88,3 +89,40 @@
     </ng-template>
   </p-sidebar>
 </div>
+
+<!-- <div class="sidebar glass">
+  <div class="flex flex-column h-full">
+    <div class="overflow-y-auto">
+      <ul class="list-none p-3 m-0">
+        <li>
+          <ul class="list-none p-0 m-0 overflow-hidden">
+            <li>
+              <a
+                pRipple
+                class="flex align-items-center cursor-pointer p-3 border-round text-700 transition-colors p-ripple"
+              >
+                <i class="pi pi-bookmark mr-2"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                class="flex align-items-center cursor-pointer p-3 border-round text-700 transition-colors p-ripple"
+              >
+                <i class="pi pi-chart-line mr-2"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                class="flex align-items-center cursor-pointer p-3 border-round text-700 transition-colors p-ripple"
+              >
+                <i class="pi pi-users mr-2"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->

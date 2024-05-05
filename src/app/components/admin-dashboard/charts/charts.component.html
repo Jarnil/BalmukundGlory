@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="cards">
+    <div pRipple class="card shadow-3">
+      <div class="card-content">
+        <i class="pi pi-users" style="font-size: 2.5rem"></i>
+        <div class="card-count">
+          <p class="m-0 card-title">Total Enquiries</p>
+          {{ this.totalEnquiries }}
+        </div>
+      </div>
+    </div>
+
+    <div pRipple class="card shadow-3">
+      <div class="card-content">
+        <i class="pi pi-building" style="font-size: 2.5rem"></i>
+        <div class="card-count">
+          <p class="m-0 card-title">2 BHK</p>
+          {{ this.twoBhkCount }}
+        </div>
+      </div>
+    </div>
+
+    <div pRipple class="card shadow-3">
+      <div class="card-content">
+        <i class="pi pi-building" style="font-size: 2.5rem"></i>
+        <div class="card-count">
+          <p class="m-0 card-title">3 BHK</p>
+          {{ this.threeBhkCount }}
+        </div>
+      </div>
+    </div>
+
+    <div pRipple class="card shadow-3">
+      <div class="card-content">
+        <i class="pi pi-home" style="font-size: 2.5rem"></i>
+        <div class="card-count">
+          <p class="m-0 card-title">Shops</p>
+          {{ this.shopsCount }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pie-chart">
+    <div echarts [options]="barChartOptions" class="demo-chart"></div>
+  </div>
+
+  <div class="pie-chart">
+    <div echarts [options]="pieChartOptions" class="demo-chart"></div>
+  </div>
+</div>

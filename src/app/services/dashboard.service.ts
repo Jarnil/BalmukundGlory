@@ -10,7 +10,7 @@ import { ChartRequest, PieChartData } from '../interface/Chart';
 export class DashboardService {
   constructor(private http: HttpClient) {}
 
-  getEnquiries(data: ChartRequest): Observable<any> {
+  getEnquiriesCount(data: ChartRequest): Observable<any> {
     return this.http.post<any>(
       environment.API_BASE_URL + 'dashboard/count-enquiries',
       data
@@ -20,6 +20,13 @@ export class DashboardService {
   getPieChartData(data: ChartRequest): Observable<any> {
     return this.http.post<any>(
       environment.API_BASE_URL + 'dashboard/piechart',
+      data
+    );
+  }
+
+  getBarChartData(data: ChartRequest): Observable<any> {
+    return this.http.post<any>(
+      environment.API_BASE_URL + 'dashboard/barchart',
       data
     );
   }

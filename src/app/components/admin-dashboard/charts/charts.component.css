@@ -1,0 +1,63 @@
+.container {
+    margin: 50px;
+  }
+  
+  :host ::ng-deep .p-card .p-card-body {
+    padding: 0;
+  }
+  
+  :host ::ng-deep .p-card .p-card-content {
+    padding:  0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+    margin: 50px;
+  } 
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    border-radius: 10px;
+    border-top: 3px solid #142D4C;
+    width: 300px;
+  }
+  
+  .card-title {
+    font-size: 1rem; 
+    font-weight: bold; 
+    padding: 0 10px;
+  }
+  
+  .card-count {
+    font-weight: bold; 
+    color: #142D4C;
+    font-size: 1.5rem; 
+  }
+  
+  .pi {
+    color: #142D4C;
+  }
+  
+  .p-ripple .p-ink {
+    background: rgba(0, 0, 0, .3);
+    z-index: -1;
+  }
+
+  .pie-chart {
+    margin-bottom: 70px;
+  }

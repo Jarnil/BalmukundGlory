@@ -3,17 +3,16 @@ h3 {
 }
 
 :host ::ng-deep .custom-scrolltop {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background-color: #142D4C;
-
-  .p-scrolltop-icon {
-    font-size: 1.5rem;
-    color: #CDC9C3;
-  }
 }
 
+:host ::ng-deep .p-scrolltop .p-icon {
+  width: 1rem;
+  height: 1rem;
+}
 
 @media (max-width: 480px) {
     :host ::ng-deep .p-toast-top-right {

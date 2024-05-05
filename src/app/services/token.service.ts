@@ -43,7 +43,7 @@ export class TokenService implements HttpInterceptor {
       });
       return next.handle(jwtToken);
     } else {
-      // this.authService.logout();
+      this.authService.logout();
       return next.handle(request);
     }
   }

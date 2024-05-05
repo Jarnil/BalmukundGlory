@@ -1,8 +1,9 @@
 .nav-menu {
-  height : 12vh;
+  height : 11vh;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  justify-content: space-between;
+  padding: 0 50px;
   background-color: transparent;
   position: sticky;
   width: 100%;
@@ -22,6 +23,7 @@
  .links {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
  }
 
@@ -42,81 +44,5 @@
 
 a {
   text-decoration: none;
-  color:  #3C4142;
   cursor: pointer;
-  font-size: 2.px;
 }
-
-
-.sidebar-links {
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  justify-content: space-around;
-  align-items: center;
-}
-
-:host ::ng-deep .p-button .menu-button {
-  margin: 10px 0;
-    background: white;
-}
-
-:host ::ng-deep .p-button .pi {
-  font-size: 1.5rem;
-  color:#142D4C;
-  padding: 0px 7px;
-}
-
-.p-inputtext:enabled:focus, .p-inputtext:enabled:hover {
-  border-color: #3C4142;
-  box-shadow: none;
-}
-
-.nav-link::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: gray;
-  transition: width .3s;
-  position: relative;
-  bottom: -5px;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-  transition: width 0.5s;
-}
-
-.p-field {
-  margin: 20px 0 10px 0;
-}
-
-:host ::ng-deep .p-dialog.p-dialog-titlebar {
-  padding: 1rem;
-}
-
-html, body {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  height: 100%;
-  min-height: 100%;
-  max-height: fit-content;
-  margin: 0;
-  font-family: sans-serif;
-  scroll-behavior: smooth;
-}
-.sidebar {
-  width: 5vw;
-  height: 100vh;
-  position: fixed;
-  background-color: #142D4C;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* :host ::ng-deep .pi {
-  color: white
-} */

@@ -19,7 +19,7 @@ export class DashboardService {
 
   getPieChartData(data: ChartRequest): Observable<any> {
     return this.http.post<any>(
-      environment.API_BASE_URL + 'dashboard/pie-chart',
+      environment.API_BASE_URL + 'dashboard/piechart',
       data
     );
   }

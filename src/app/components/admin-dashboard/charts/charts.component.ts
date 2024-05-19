@@ -51,6 +51,7 @@ export class ChartsComponent {
   }
 
   updateDateRange() {
+    this.selectedDateFilter = 'DATE';
     if (this.dateRange && this.dateRange.length === 2) {
       const startDate = this.dateRange[0];
       const endDate = this.dateRange[1];
@@ -66,13 +67,11 @@ export class ChartsComponent {
         endDate.getDate()
       );
 
-      console.log('endUTC: ', endUTC);
-      console.log('startUTC: ', startUTC);
       const daysDifference = Math.ceil(
         (endUTC - startUTC) / (1000 * 60 * 60 * 24)
       );
 
-      if (daysDifference > 31) {
+      if (daysDifference >= 31) {
         this.selectedDateFilter = 'MONTH';
       }
 
@@ -80,11 +79,14 @@ export class ChartsComponent {
       this.startDate = this.formatDate(startDate.toLocaleDateString());
       this.endDate = this.formatDate(endDate.toLocaleDateString(), true);
     } else {
+      this.selectedDateFilter = 'DATE';
       this.dateRange = [this.today, this.today];
       this.startDate = this.formatDate(this.today.toLocaleDateString());
       this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
     }
   }
+
+  calculateDaysDifference() {}
 
   formatDate(dateString: string, isEndDate = false) {
     const date = new Date(dateString);

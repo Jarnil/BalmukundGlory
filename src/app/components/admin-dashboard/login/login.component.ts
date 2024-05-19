@@ -30,6 +30,7 @@ export class LoginComponent {
       }),
     });
   }
+
   OnSubmit() {
     this.isLoading = true;
     if (this.loginForm.valid) {
@@ -43,6 +44,8 @@ export class LoginComponent {
           const email = response.data.email;
           const token = response.data.token;
           const userName = response.data.userName;
+          const userId = response.data.userId;
+          localStorage.setItem('userId', userId);
           localStorage.setItem('email', email);
           localStorage.setItem('token', token);
           localStorage.setItem('userName', userName);

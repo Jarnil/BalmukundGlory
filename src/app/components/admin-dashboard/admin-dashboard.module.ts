@@ -14,6 +14,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnquiryTableComponent } from './enquiry-table/enquiry-table.component';
 import { ChartsComponent } from './charts/charts.component';
+import { MenuModule } from 'primeng/menu';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ChartsComponent } from './charts/charts.component';
     SharedModule,
     CardModule,
     DropdownModule,
+    MenuModule,
+    PasswordModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),

@@ -23,7 +23,7 @@
   .card-content {
     display: flex;
     align-items: center;
-    margin: 50px;
+    margin: 50px 70px;
   } 
   
   .card {
@@ -34,11 +34,11 @@
     text-align: center; 
     border-radius: 10px;
     border-top: 3px solid #142D4C;
-    width: 300px;
+    width: 320px;
   }
   
   .card-title {
-    font-size: 1rem; 
+    font-size: 1.5rem; 
     font-weight: bold; 
     padding: 0 10px;
   }
@@ -58,6 +58,83 @@
     z-index: -1;
   }
 
-  .pie-chart {
+  .barchart-container {
     margin-bottom: 70px;
   }
+
+  .bar-chart {
+    height: 500px;
+  }
+
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../../assets/images/gallery/left_view.png'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; 
+    z-index: -1; 
+  }
+
+  .inputs {
+    display: flex;
+    align-items: center;
+    border-top: 3px solid #142D4C;
+    padding: 20px 0;
+    margin: 50px 0;
+    border-radius: 10px;
+  }
+
+  label {
+    margin-left: 50px;
+  }
+  .date-inputs {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    column-gap: 5%;
+  }
+
+  :host ::ng-deep .p-button {
+    margin: 0 20px;
+    background: #142D4C;
+    border: none;
+    border: 1px solid #142D4C;
+  }
+
+  :host ::ng-deep .p-button:focus {
+    box-shadow: none;
+  }
+
+  .buttons {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  :host ::ng-deep .p-dropdown {
+    width: 230px;
+  }
+
+  :host ::ng-deep .p-dropdown:hover {
+    border-color: #142D4C;
+  }
+
+  :host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: none;
+  }
+
+  :host ::ng-deep .p-calendar {
+    width: 250px;
+  }
+
+  :host ::ng-deep .p-inputtext:enabled:hover {
+    border-color: #142D4C;
+  }
+
+  :host ::ng-deep .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+    box-shadow: none;
+}

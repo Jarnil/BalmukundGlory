@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { EChartsOption } from 'echarts';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { DashboardService } from '../../../services/dashboard.service';
-import { BarChartData, PieChartData } from '../../../interface/Chart';
+import {
+  BarChartData,
+  ChartRequest,
+  PieChartData,
+} from '../../../interface/Chart';
 
 @Component({
   selector: 'app-charts',
@@ -10,6 +14,9 @@ import { BarChartData, PieChartData } from '../../../interface/Chart';
   styleUrl: './charts.component.css',
 })
 export class ChartsComponent {
+  dateRange: Date[] | undefined;
+  startDate!: string;
+  endDate!: string;
   totalEnquiries!: number;
   twoBhkCount!: number;
   threeBhkCount!: number;
@@ -20,11 +27,12 @@ export class ChartsComponent {
   xAxisLabel: string[] = [];
   enquiriesData: number[] = [];
   barChartOptions!: EChartsOption;
-  request = {
-    filterType: 'LAST_6_MONTHS',
-    startDate: new Date('2024-01-01T17:46:05.285Z'),
-    endDate: new Date('2024-05-31T17:46:05.285Z'),
-  };
+  dateFilters: any[] = [];
+  selectedDateFilter: any;
+  request!: ChartRequest;
+  today = new Date();
+  maxDate!: Date;
+
   constructor(
     private dashboardService: DashboardService,
     private messageService: MessageService,
@@ -32,13 +40,81 @@ export class ChartsComponent {
   ) {}
 
   ngOnInit() {
-    this.getPieChartData();
-    this.getBarChartData();
+    this.selectedDateFilter = 'TODAY';
+    this.updateDateRange();
     this.getEnquiriesData();
     this.primengConfig.ripple = true;
+    this.maxDate = this.today;
+    // this.dateFilters = [
+    //   'RANGE',
+    //   'TODAY',
+    //   'YESTERDAY',
+    //   'THIS_WEEK',
+    //   'LAST_WEEK',
+    //   'THIS_MONTH',
+    //   'LAST_MONTH',
+    //   'LAST_3_MONTHS',
+    //   'LAST_6_MONTHS',
+    //   'THIS_YEAR',
+    //   'LAST_YEAR',
+    // ];
+  }
+
+  updateDateRange() {
+    console.log(this.dateRange);
+    if (this.dateRange && this.dateRange.length === 2) {
+      // Set start date and end date based on the selected range
+      this.startDate = this.formatDate(this.dateRange[0].toLocaleDateString());
+      this.endDate = this.formatDate(
+        this.dateRange[1].toLocaleDateString(),
+        true
+      );
+    } else {
+      // If no range is selected, check if the "RANGE" filter is chosen
+      if (this.selectedDateFilter === 'TODAY') {
+        // Set start and end dates to today's date
+        this.dateRange = [this.today, this.today];
+        this.startDate = this.formatDate(this.today.toLocaleDateString());
+        this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
+      } else {
+        // Clear start date and end date if range is not selected and filter is not "RANGE"
+        this.startDate = '';
+        this.endDate = '';
+      }
+    }
+  }
+
+  formatDate(dateString: string, isEndDate = false) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = isEndDate ? '23' : '00';
+    const minutes = isEndDate ? '59' : '00';
+    const seconds = isEndDate ? '59' : '00';
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
+  onReset() {
+    this.selectedDateFilter = 'TODAY';
+    this.dateRange = [this.today, this.today];
+    this.startDate = this.formatDate(this.today.toLocaleDateString());
+    this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
+    this.updateDateRange();
+    this.getEnquiriesData();
   }
 
   getEnquiriesData() {
+    this.updateDateRange();
+    this.clearChartData(); // Clear existing chart data before fetching new data
+
+    this.request = {
+      filterType: this.selectedDateFilter,
+      startDate: this.startDate,
+      endDate: this.endDate,
+    };
+
     this.dashboardService.getEnquiriesCount(this.request).subscribe(
       (response) => {
         this.totalEnquiries = response.data.totalEnquiries;
@@ -46,6 +122,8 @@ export class ChartsComponent {
         this.threeBhkCount = response.data.threeBhkCount;
         this.shopsCount = response.data.shopsCount;
         console.log(response);
+        this.getBarChartData(); // Fetch bar chart data after getting the total enquiries data
+        this.getPieChartData(); // Fetch pie chart data after getting the total enquiries data
       },
       (err) => {
         console.error('Error:', err);
@@ -62,7 +140,20 @@ export class ChartsComponent {
     );
   }
 
+  clearChartData() {
+    this.barChartData = [];
+    this.enquiriesData = [];
+    this.xAxisLabel = [];
+  }
+
   getPieChartData() {
+    // this.updateDateRange();
+
+    this.request = {
+      filterType: this.selectedDateFilter,
+      startDate: this.startDate,
+      endDate: this.endDate,
+    };
     this.dashboardService.getPieChartData(this.request).subscribe(
       (response) => {
         this.pieChartData = response.data;
@@ -104,6 +195,7 @@ export class ChartsComponent {
           name: 'Requirements',
           type: 'pie',
           radius: '70%',
+          top: 20,
           data: this.pieChartData,
           emphasis: {
             itemStyle: {
@@ -118,6 +210,14 @@ export class ChartsComponent {
   }
 
   getBarChartData() {
+    // this.updateDateRange();
+
+    this.request = {
+      filterType: this.selectedDateFilter,
+      startDate: this.startDate,
+      endDate: this.endDate,
+    };
+
     this.dashboardService.getBarChartData(this.request).subscribe(
       (response) => {
         this.barChartData = response.data;
@@ -141,13 +241,31 @@ export class ChartsComponent {
   }
 
   updateBarChartOptions() {
+    const isEmptyData = this.enquiriesData.length === 0;
+
+    // Define the graphic elements conditionally
+    const graphicElements = isEmptyData
+      ? [
+          {
+            type: 'text',
+            left: 'center',
+            top: 'middle',
+            style: {
+              text: 'No data found',
+              fontSize: 25,
+              fill: '#142D4C',
+            },
+            z: 100,
+          },
+        ]
+      : [];
+
     this.barChartOptions = {
       title: {
         text: 'Total Enquiries Overview',
         subtext: 'Analysis of Overall Enquiry Activity',
         left: 'center',
       },
-
       legend: {
         left: 'left',
       },
@@ -157,11 +275,6 @@ export class ChartsComponent {
           type: 'shadow',
         },
       },
-      // dataZoom: {
-      //   show: true,
-      //   start: 80,
-      //   type: 'inside',
-      // },
       xAxis: {
         data: this.xAxisLabel,
         axisLabel: {
@@ -193,6 +306,9 @@ export class ChartsComponent {
         right: '4%',
         bottom: '3%',
         containLabel: true,
+      },
+      graphic: {
+        elements: graphicElements,
       },
     };
   }

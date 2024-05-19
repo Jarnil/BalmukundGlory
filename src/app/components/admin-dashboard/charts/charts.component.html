@@ -1,6 +1,43 @@
 <div class="container">
+  <div class="inputs shadow-3">
+    <div class="date-inputs">
+      <label for="">Date Filter:</label>
+      <!-- <p-dropdown
+        [options]="dateFilters"
+        [(ngModel)]="selectedDateFilter"
+        checkmark="true"
+        [showClear]="true"
+        placeholder="Select Range"
+        (onChange)="onDateFilterChange()"
+      /> -->
+
+      <span>
+        <p-calendar
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          placeholder="Start Date - End Date"
+          [dateFormat]="'dd/mm/yy'"
+          [readonlyInput]="true"
+          [selectionMode]="'range'"
+          [(ngModel)]="dateRange"
+          [maxDate]="maxDate"
+          (onSelect)="updateDateRange()"
+        >
+        </p-calendar>
+      </span>
+    </div>
+
+    <div class="buttons">
+      <span>
+        <p-button label="Search" (click)="getEnquiriesData()"></p-button>
+        <p-button label="Reset" (click)="onReset()"></p-button>
+      </span>
+    </div>
+  </div>
+
   <div class="cards">
     <div pRipple class="card shadow-3">
+      <div class="card-background"></div>
       <div class="card-content">
         <i class="pi pi-users" style="font-size: 2.5rem"></i>
         <div class="card-count">
@@ -11,6 +48,7 @@
     </div>
 
     <div pRipple class="card shadow-3">
+      <div class="card-background"></div>
       <div class="card-content">
         <i class="pi pi-building" style="font-size: 2.5rem"></i>
         <div class="card-count">
@@ -21,6 +59,7 @@
     </div>
 
     <div pRipple class="card shadow-3">
+      <div class="card-background"></div>
       <div class="card-content">
         <i class="pi pi-building" style="font-size: 2.5rem"></i>
         <div class="card-count">
@@ -31,6 +70,7 @@
     </div>
 
     <div pRipple class="card shadow-3">
+      <div class="card-background"></div>
       <div class="card-content">
         <i class="pi pi-home" style="font-size: 2.5rem"></i>
         <div class="card-count">
@@ -41,11 +81,11 @@
     </div>
   </div>
 
-  <div class="pie-chart">
-    <div echarts [options]="barChartOptions" class="demo-chart"></div>
+  <div class="barchart-container">
+    <div echarts [options]="barChartOptions" class="bar-chart"></div>
   </div>
 
-  <div class="pie-chart">
-    <div echarts [options]="pieChartOptions" class="demo-chart"></div>
+  <div class="piechart-container">
+    <div echarts [options]="pieChartOptions" class="pie-chart"></div>
   </div>
 </div>

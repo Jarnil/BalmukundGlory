@@ -40,47 +40,49 @@ export class ChartsComponent {
   ) {}
 
   ngOnInit() {
-    this.selectedDateFilter = 'TODAY';
+    this.selectedDateFilter = 'DATE';
+    this.dateRange = [this.today, this.today];
+    this.startDate = this.formatDate(this.today.toLocaleDateString());
+    this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
     this.updateDateRange();
     this.getEnquiriesData();
     this.primengConfig.ripple = true;
     this.maxDate = this.today;
-    // this.dateFilters = [
-    //   'RANGE',
-    //   'TODAY',
-    //   'YESTERDAY',
-    //   'THIS_WEEK',
-    //   'LAST_WEEK',
-    //   'THIS_MONTH',
-    //   'LAST_MONTH',
-    //   'LAST_3_MONTHS',
-    //   'LAST_6_MONTHS',
-    //   'THIS_YEAR',
-    //   'LAST_YEAR',
-    // ];
   }
 
   updateDateRange() {
-    console.log(this.dateRange);
     if (this.dateRange && this.dateRange.length === 2) {
-      // Set start date and end date based on the selected range
-      this.startDate = this.formatDate(this.dateRange[0].toLocaleDateString());
-      this.endDate = this.formatDate(
-        this.dateRange[1].toLocaleDateString(),
-        true
+      const startDate = this.dateRange[0];
+      const endDate = this.dateRange[1];
+
+      const startUTC = Date.UTC(
+        startDate.getFullYear(),
+        startDate.getMonth(),
+        startDate.getDate()
       );
-    } else {
-      // If no range is selected, check if the "RANGE" filter is chosen
-      if (this.selectedDateFilter === 'TODAY') {
-        // Set start and end dates to today's date
-        this.dateRange = [this.today, this.today];
-        this.startDate = this.formatDate(this.today.toLocaleDateString());
-        this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
-      } else {
-        // Clear start date and end date if range is not selected and filter is not "RANGE"
-        this.startDate = '';
-        this.endDate = '';
+      const endUTC = Date.UTC(
+        endDate.getFullYear(),
+        endDate.getMonth(),
+        endDate.getDate()
+      );
+
+      console.log('endUTC: ', endUTC);
+      console.log('startUTC: ', startUTC);
+      const daysDifference = Math.ceil(
+        (endUTC - startUTC) / (1000 * 60 * 60 * 24)
+      );
+
+      if (daysDifference > 31) {
+        this.selectedDateFilter = 'MONTH';
       }
+
+      // Set start date and end date based on the selected range
+      this.startDate = this.formatDate(startDate.toLocaleDateString());
+      this.endDate = this.formatDate(endDate.toLocaleDateString(), true);
+    } else {
+      this.dateRange = [this.today, this.today];
+      this.startDate = this.formatDate(this.today.toLocaleDateString());
+      this.endDate = this.formatDate(this.today.toLocaleDateString(), true);
     }
   }
 
@@ -97,7 +99,7 @@ export class ChartsComponent {
   }
 
   onReset() {
-    this.selectedDateFilter = 'TODAY';
+    this.selectedDateFilter = 'DATE';
     this.dateRange = [this.today, this.today];
     this.startDate = this.formatDate(this.today.toLocaleDateString());
     this.endDate = this.formatDate(this.today.toLocaleDateString(), true);

@@ -5,16 +5,6 @@
   <div class="links">
     <li>
       <a
-        routerLink="enquiries"
-        pRipple
-        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
-      >
-        <i class="pi pi-bookmark mr-2"></i>
-        <span class="font-medium">Enquiries</span>
-      </a>
-    </li>
-    <li>
-      <a
         routerLink="reports"
         pRipple
         class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
@@ -23,6 +13,18 @@
         <span class="font-medium">Reports</span>
       </a>
     </li>
+
+    <li>
+      <a
+        routerLink="enquiries"
+        pRipple
+        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+      >
+        <i class="pi pi-bookmark mr-2"></i>
+        <span class="font-medium">Enquiries</span>
+      </a>
+    </li>
+
     <li>
       <p-menu #menu [model]="menuItems" [popup]="true" />
       <a

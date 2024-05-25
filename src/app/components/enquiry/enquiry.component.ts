@@ -77,20 +77,15 @@ export class EnquiryComponent {
   }
 
   validateData() {
-    if (
-      this.enquiryData.name == '' ||
-      this.enquiryData.contactNumber == '' ||
-      this.enquiryData.email == '' ||
-      this.enquiryData.requirement.length <= 0 ||
-      this.enquiryData.requirement.length > 3
-    ) {
-      return false;
-    }
-
-    this.isEmailInvalid();
-    this.isContactInvalid();
-
-    return true;
+    return (
+      this.enquiryData.name.trim() !== '' &&
+      this.enquiryData.contactNumber.trim() !== '' &&
+      this.enquiryData.email.trim() !== '' &&
+      this.enquiryData.requirement.length > 0 &&
+      this.enquiryData.requirement.length <= 3 &&
+      !this.isEmailInvalid() &&
+      !this.isContactInvalid()
+    );
   }
 
   onSubmit() {
@@ -107,6 +102,7 @@ export class EnquiryComponent {
             detail:
               'We appreciate your interest and will respond to your enquiry promptly.',
           });
+          this.resetForm();
           this.isLoading = false;
         },
         (error) => {
@@ -128,6 +124,24 @@ export class EnquiryComponent {
       });
       this.isLoading = false;
     }
+  }
+
+  resetForm() {
+    this.enquiryData = {
+      name: '',
+      email: '',
+      contactNumber: '',
+      address: '',
+      occupation: '',
+      requirement: [],
+    };
+    this.optionsArray.forEach((option) => {
+      const checkbox = document.getElementById(option) as HTMLInputElement;
+      if (checkbox) {
+        checkbox.checked = false;
+      }
+    });
+    this.isSubmit = false;
   }
 
   downloadBrochure() {

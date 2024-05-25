@@ -1,0 +1,57 @@
+.inputs {
+    border-top: 3px solid #142D4C;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 50px 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    justify-content: center;
+}
+
+.inputs span,
+.inputs p-calendar,
+.inputs p-button {
+    flex: 0 1 300px;
+    display: flex;
+    align-items: center;
+}
+
+.p-input-icon-right input {
+    width: 100%;
+}
+
+  :host ::ng-deep .p-button {
+    background: #142D4C;
+    border: none;
+    border: 1px solid #142D4C;
+  }
+
+  :host ::ng-deep .p-button:focus {
+    box-shadow: none;
+  }
+
+  input:hover {
+    border: 1px solid #142D4C;
+  }
+  
+  input:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none;
+    border-color: #142D4C;
+  }
+
+  :host ::ng-deep .p-calendar {
+    width: 300px;
+  }
+
+  :host ::ng-deep .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+    box-shadow: none;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-header {
+    padding: 20px 50px;
+    font-size: 20px;
+}

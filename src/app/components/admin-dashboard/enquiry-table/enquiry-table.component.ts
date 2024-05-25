@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
 import { EnquiryService } from '../../../services/enquiry.service';
 import { EnquiryList } from '../../../interface/Enquiry';
-import { MessageService } from 'primeng/api';
-
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
+import { ConfirmationService, MessageService } from 'primeng/api';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-enquiry-table',
@@ -17,12 +11,14 @@ interface PageEvent {
 })
 export class EnquiryTableComponent {
   enquiries: any;
+  totalRecords: any;
+  totalPages: any;
+  currentPage: any;
+  pageSize: any;
   dateRange!: Date[];
-  first: number = 0;
-  rows: number = 10;
   enquiryList: EnquiryList = {
     pageNo: 0,
-    pageSize: 100,
+    pageSize: 10,
     sortBy: '',
     sortOrder: '',
     columnSearchValue: {
@@ -39,7 +35,8 @@ export class EnquiryTableComponent {
 
   constructor(
     private enquiryService: EnquiryService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -66,6 +63,10 @@ export class EnquiryTableComponent {
     this.enquiryService.getEnquiries(this.enquiryList).subscribe(
       (response) => {
         this.enquiries = response.data.data;
+        this.totalRecords = response.data.totalCount;
+        this.totalPages = response.data.totalPages;
+        this.currentPage = response.data.currentPage;
+        this.pageSize = response.data.pageSize;
       },
       (error) => {
         console.error('Error:', error);
@@ -126,7 +127,7 @@ export class EnquiryTableComponent {
   onReset() {
     this.enquiryList = {
       pageNo: 0,
-      pageSize: 100,
+      pageSize: 10,
       sortBy: 'id',
       sortOrder: 'asc',
       columnSearchValue: {
@@ -143,8 +144,71 @@ export class EnquiryTableComponent {
     this.getEnquiryList();
   }
 
-  onPageChange(event: PageEvent) {
-    this.enquiryList.pageNo = event.first;
+  onPageChange(event: any) {
+    this.enquiryList.pageNo = event.first / event.rows + 1;
     this.enquiryList.pageSize = event.rows;
+    console.log(this.enquiryList);
+    this.getEnquiryList();
+  }
+
+  deleteEnquiry(id: number): void {
+    this.enquiryService.deleteEnquiry(id).subscribe(
+      (response) => {
+        console.log('Received response:', response);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Enquiry Deleted.',
+          detail: 'Enquiry Deleted Successfully.',
+        });
+      },
+      (error) => {
+        console.error('Error:', error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error!',
+          detail: 'Something went wrong while deleting enquiry!',
+        });
+      }
+    );
+  }
+
+  confirm(event: Event, id: number) {
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      acceptButtonStyleClass: 'p-button-danger p-button-text',
+      rejectButtonStyleClass: 'p-button-text p-button-text',
+      acceptIcon: 'none',
+      rejectIcon: 'none',
+
+      accept: () => {
+        this.deleteEnquiry(id);
+      },
+      reject: () => {},
+    });
+  }
+  exportexcel(): void {
+    let element = document.getElementById('enquiriestable');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const currentDate = new Date();
+    const formattedDate = currentDate
+      .toLocaleDateString('en-GB')
+      .split('/')
+      .join('');
+    const updatedFileName = `Enquiries_${formattedDate}.xlsx`;
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    XLSX.writeFile(wb, updatedFileName);
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Data Exported successfully!',
+    });
   }
 }

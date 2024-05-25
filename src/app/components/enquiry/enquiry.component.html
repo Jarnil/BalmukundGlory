@@ -106,7 +106,7 @@
         <p-button
           [label]="isLoading ? '' : 'Download Brochure'"
           [icon]="isLoading ? 'pi pi-spin pi-spinner' : ''"
-          [disabled]="isLoading"
+          [disabled]="!validateData() || isLoading"
           (click)="onSubmit()"
         ></p-button>
       </div>

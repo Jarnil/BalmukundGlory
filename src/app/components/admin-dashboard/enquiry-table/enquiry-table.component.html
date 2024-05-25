@@ -1,5 +1,5 @@
 <div class="header">
-  <div class="inputs">
+  <div class="inputs shadow-3">
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
       <input
@@ -49,6 +49,7 @@
         [(ngModel)]="enquiryList.columnSearchValue.searchAddress"
       />
     </span>
+
     <span class="p-input-icon-right">
       <i class="pi pi-search"></i>
       <input
@@ -75,33 +76,28 @@
 
     <span>
       <p-button label="Search" (click)="getEnquiryList()"></p-button>
+      <p-button label="Reset" (click)="onReset()"></p-button>
     </span>
-    <span>
-      <p-button label="Cancel" (click)="onReset()"></p-button>
-    </span>
-    <!-- <div class="buttons">
-      <p-button label="Search"></p-button>
-      <p-button label="Cancel" (click)="onReset()"></p-button>
-    </div> -->
   </div>
 </div>
 
 <div class="card">
   <p-table
+    id="enquiriestable"
     [value]="enquiries"
     styleClass="p-datatable-striped"
     [tableStyle]="{ 'min-width': '50rem' }"
-    [paginator]="true"
-    [rows]="5"
     [showCurrentPageReport]="true"
     [tableStyle]="{ 'min-width': '50rem' }"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
   >
     <ng-template pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
         Enquiries
-        <p-button icon="pi pi-refresh" (onClick)="onReset()"></p-button>
+        <p-button
+          icon="pi pi-file"
+          class="excel-button"
+          (onClick)="exportexcel()"
+        ></p-button>
       </div>
     </ng-template>
     <ng-template pTemplate="header">
@@ -128,6 +124,7 @@
         <th pSortableColumn="createdDate">
           Created Date<p-sortIcon field="createdDate"></p-sortIcon>
         </th>
+        <th>Action</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-enquiry>
@@ -145,7 +142,25 @@
           ></p-tag>
         </td>
         <td>{{ enquiry.createdDate }}</td>
+        <td>
+          <p-button
+            icon="pi pi-times-circle"
+            label="Delete"
+            class="delete-btn"
+            (click)="confirm($event, enquiry.id)"
+          ></p-button>
+        </td>
       </tr>
     </ng-template>
   </p-table>
+  <p-paginator
+    (onPageChange)="onPageChange($event)"
+    [first]="(currentPage - 1) * pageSize"
+    [rows]="pageSize"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="[10, 25, 50, 100, 500]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+  />
 </div>
+<p-confirmDialog />

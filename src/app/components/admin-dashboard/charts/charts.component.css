@@ -33,7 +33,7 @@
     align-items: center;
     text-align: center; 
     border-radius: 10px;
-    border-top: 3px solid #142D4C;
+    /* border-top: 3px solid #142D4C; */
     width: 320px;
   }
   
@@ -45,12 +45,12 @@
   
   .card-count {
     font-weight: bold; 
-    color: #142D4C;
+    color: #ffffff;
     font-size: 1.5rem; 
   }
   
   .pi {
-    color: #142D4C;
+    color: #ffffff;
   }
   
   .p-ripple .p-ink {
@@ -72,10 +72,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../../../assets/images/gallery/left_view.png'); 
+    background-image: url('../../../../assets/images/gallery/left_corner_view.png'); 
+    filter: brightness(50%);
     background-size: cover;
     background-position: center;
-    opacity: 0.4; 
+    /* opacity: 0.4;  */
     z-index: -1; 
   }
 

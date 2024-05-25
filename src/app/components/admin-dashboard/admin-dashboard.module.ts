@@ -16,6 +16,9 @@ import { EnquiryTableComponent } from './enquiry-table/enquiry-table.component';
 import { ChartsComponent } from './charts/charts.component';
 import { MenuModule } from 'primeng/menu';
 import { PasswordModule } from 'primeng/password';
+import { PaginatorModule } from 'primeng/paginator';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -31,10 +34,13 @@ import { PasswordModule } from 'primeng/password';
     CardModule,
     DropdownModule,
     MenuModule,
+    PaginatorModule,
+    ConfirmDialogModule,
     PasswordModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),
   ],
+  providers: [ConfirmationService],
 })
 export class AdminDashboardModule {}

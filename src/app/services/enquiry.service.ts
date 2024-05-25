@@ -20,4 +20,8 @@ export class EnquiryService {
       enquiry
     );
   }
+
+  deleteEnquiry(id: number): Observable<any> {
+    return this.http.delete(environment.API_BASE_URL + 'enquiry/' + id);
+  }
 }

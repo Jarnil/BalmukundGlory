@@ -154,7 +154,8 @@ export class EnquiryTableComponent {
   deleteEnquiry(id: number): void {
     this.enquiryService.deleteEnquiry(id).subscribe(
       (response) => {
-        console.log('Received response:', response);
+        console.log('Delete response:', response);
+        this.getEnquiryList();
         this.messageService.add({
           severity: 'success',
           summary: 'Enquiry Deleted.',

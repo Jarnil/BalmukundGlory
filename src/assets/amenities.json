@@ -21,10 +21,6 @@
       "image": "assets/images/amenities/garden.png"
     },
     {
-      "name": "CCTV",
-      "image": "assets/images/amenities/cctv.png"
-    },
-    {
       "name": "Outdoor Games",
       "image": "assets/images/amenities/outdoor_games.png"
     },
@@ -35,10 +31,6 @@
     {
       "name": "Decorative Lobby",
       "image": "assets/images/amenities/entrance_lobby.png"
-    },
-    {
-      "name": "Gas Line Provision",
-      "image": "assets/images/amenities/gas_line.png"
     },
     {
       "name": "Senior Citizen Sit Out",
@@ -59,10 +51,6 @@
     {
       "name": "Wifi",
       "image": "assets/images/amenities/wifi.png"
-    },
-    {
-      "name": "Solar provision",
-      "image": "assets/images/amenities/solar.png"
     }
   ]
 }

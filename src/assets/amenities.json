@@ -9,10 +9,6 @@
       "image": "assets/images/amenities/indoor_games.png"
     },
     {
-      "name": "Outdoor Games",
-      "image": "assets/images/amenities/outdoor_games.png"
-    },
-    {
       "name": "Library",
       "image": "assets/images/amenities/library.png"
     },
@@ -25,6 +21,14 @@
       "image": "assets/images/amenities/garden.png"
     },
     {
+      "name": "CCTV",
+      "image": "assets/images/amenities/cctv.png"
+    },
+    {
+      "name": "Outdoor Games",
+      "image": "assets/images/amenities/outdoor_games.png"
+    },
+    {
       "name": "Kids Play area",
       "image": "assets/images/amenities/kids_play_area.png"
     },
@@ -33,20 +37,8 @@
       "image": "assets/images/amenities/entrance_lobby.png"
     },
     {
-      "name": "CCTV",
-      "image": "assets/images/amenities/cctv.png"
-    },
-    {
-      "name": "Ev Charging",
-      "image": "assets/images/amenities/ev_charging.png"
-    },
-    {
-      "name": "Open Air Theatre",
-      "image": "assets/images/amenities/open_air_theatre.png"
-    },
-    {
-      "name": "Shops",
-      "image": "assets/images/amenities/shops.png"
+      "name": "Gas Line Provision",
+      "image": "assets/images/amenities/gas_line.png"
     },
     {
       "name": "Senior Citizen Sit Out",
@@ -61,8 +53,8 @@
       "image": "assets/images/amenities/fire_safety.png"
     },
     {
-      "name": "Gas Line Provision",
-      "image": "assets/images/amenities/gas_line.png"
+      "name": "Ev Charging",
+      "image": "assets/images/amenities/ev_charging.png"
     },
     {
       "name": "Wifi",

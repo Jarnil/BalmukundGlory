@@ -25,13 +25,17 @@ export class ChartsComponent {
   pieChartOptions!: EChartsOption;
   barChartData: BarChartData[] = [];
   xAxisLabel: string[] = [];
-  enquiriesData: number[] = [];
+  totalEnquiriesBarChartData: number[] = [];
+  twoBhkBarChartData: number[] = [];
+  threeBhkBarChartData: number[] = [];
+  shopsBarChartData: number[] = [];
   barChartOptions!: EChartsOption;
   dateFilters: any[] = [];
   selectedDateFilter: any;
   request!: ChartRequest;
   today = new Date();
   maxDate!: Date;
+  isLoading: boolean = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -146,7 +150,10 @@ export class ChartsComponent {
 
   clearChartData() {
     this.barChartData = [];
-    this.enquiriesData = [];
+    this.totalEnquiriesBarChartData = [];
+    this.twoBhkBarChartData = [];
+    this.threeBhkBarChartData = [];
+    this.shopsBarChartData = [];
     this.xAxisLabel = [];
   }
 
@@ -215,7 +222,7 @@ export class ChartsComponent {
 
   getBarChartData() {
     // this.updateDateRange();
-
+    this.isLoading = true;
     this.request = {
       filterType: this.selectedDateFilter,
       startDate: this.startDate,
@@ -225,9 +232,21 @@ export class ChartsComponent {
     this.dashboardService.getBarChartData(this.request).subscribe(
       (response) => {
         this.barChartData = response.data;
-        this.enquiriesData = this.getEnquiries();
-        this.xAxisLabel = this.getXAxisLabels();
+        this.totalEnquiriesBarChartData = response.data.map(
+          (item: any) => item.totalEnquiries
+        );
+        this.twoBhkBarChartData = response.data.map(
+          (item: any) => item.twoBhkEnquiries
+        );
+        this.threeBhkBarChartData = response.data.map(
+          (item: any) => item.threeBhkEnquiries
+        );
+        this.shopsBarChartData = response.data.map(
+          (item: any) => item.shopsEnquiries
+        );
+        this.xAxisLabel = response.data.map((item: any) => item.xAxisLabel);
         this.updateBarChartOptions();
+        this.isLoading = false;
       },
       (err) => {
         console.error('Error:', err);
@@ -240,12 +259,13 @@ export class ChartsComponent {
           summary: 'Error',
           detail: errorMessage,
         });
+        this.isLoading = false;
       }
     );
   }
 
   updateBarChartOptions() {
-    const isEmptyData = this.enquiriesData.length === 0;
+    const isEmptyData = this.totalEnquiriesBarChartData.length === 0;
 
     // Define the graphic elements conditionally
     const graphicElements = isEmptyData
@@ -270,6 +290,7 @@ export class ChartsComponent {
         subtext: 'Analysis of Overall Enquiry Activity',
         left: 'center',
       },
+      color: ['#8FD5F3', '#748EDE', '#B180CE'],
       legend: {
         left: 'left',
       },
@@ -280,28 +301,44 @@ export class ChartsComponent {
         },
       },
       xAxis: {
+        type: 'category',
         data: this.xAxisLabel,
         axisLabel: {
           rotate: 90,
         },
-        interval: 0,
       },
-      yAxis: { type: 'value' },
+      yAxis: {
+        type: 'value',
+      },
       series: [
         {
-          name: 'Enquiries',
+          name: '2BHK',
           type: 'bar',
-          data: this.enquiriesData,
+          stack: 'total',
+          data: this.twoBhkBarChartData,
           showBackground: true,
-          barMaxWidth: '50%',
           label: {
-            show: true,
+            show: false,
           },
-          colorBy: 'data',
-          emphasis: {
-            itemStyle: {
-              shadowOffsetX: 2,
-            },
+        },
+        {
+          name: '3BHK',
+          type: 'bar',
+          stack: 'total',
+          data: this.threeBhkBarChartData,
+          showBackground: true,
+          label: {
+            show: false,
+          },
+        },
+        {
+          name: 'Shops',
+          type: 'bar',
+          stack: 'total',
+          data: this.shopsBarChartData,
+          showBackground: true,
+          label: {
+            show: false,
           },
         },
       ],
@@ -317,17 +354,132 @@ export class ChartsComponent {
     };
   }
 
-  getEnquiries(): number[] {
-    for (const data of this.barChartData) {
-      this.enquiriesData.push(data.enquiries);
-    }
-    return this.enquiriesData;
-  }
+  // getBarChartData() {
+  //   // this.updateDateRange();
 
-  getXAxisLabels(): string[] {
-    for (const data of this.barChartData) {
-      this.xAxisLabel.push(data.xAxisLabel);
-    }
-    return this.xAxisLabel;
-  }
+  //   this.request = {
+  //     filterType: this.selectedDateFilter,
+  //     startDate: this.startDate,
+  //     endDate: this.endDate,
+  //   };
+
+  //   this.dashboardService.getBarChartData(this.request).subscribe(
+  //     (response) => {
+  //       this.barChartData = response.data;
+  //       this.totalEnquiriesBarChartData = response.map(
+  //         (item: any) => item.TotalEnquiries
+  //       );
+  //       this.twoBhkBarChartData = response.map(
+  //         (item: any) => item.TwoBhkEnquiries
+  //       );
+  //       this.threeBhkBarChartData = response.map(
+  //         (item: any) => item.ThreeBhkEnquiries
+  //       );
+  //       this.shopsBarChartData = response.map(
+  //         (item: any) => item.ShopsEnquiries
+  //       );
+  //       this.xAxisLabel = response.map((item: any) => item.XAxisLabel);
+  //       this.updateBarChartOptions();
+  //     },
+  //     (err) => {
+  //       console.error('Error:', err);
+  //       const errorMessage =
+  //         err.error?.class?.message ||
+  //         err.error?.message ||
+  //         'An error occurred while getting chart data!';
+  //       this.messageService.add({
+  //         severity: 'error',
+  //         summary: 'Error',
+  //         detail: errorMessage,
+  //       });
+  //     }
+  //   );
+  // }
+
+  // updateBarChartOptions() {
+  //   const isEmptyData = this.totalEnquiriesBarChartData.length === 0;
+
+  //   // Define the graphic elements conditionally
+  //   const graphicElements = isEmptyData
+  //     ? [
+  //         {
+  //           type: 'text',
+  //           left: 'center',
+  //           top: 'middle',
+  //           style: {
+  //             text: 'No data found',
+  //             fontSize: 25,
+  //             fill: '#142D4C',
+  //           },
+  //           z: 100,
+  //         },
+  //       ]
+  //     : [];
+
+  //   this.barChartOptions = {
+  //     title: {
+  //       text: 'Total Enquiries Overview',
+  //       subtext: 'Analysis of Overall Enquiry Activity',
+  //       left: 'center',
+  //     },
+  //     legend: {
+  //       left: 'left',
+  //     },
+  //     tooltip: {
+  //       trigger: 'axis',
+  //       axisPointer: {
+  //         type: 'shadow',
+  //       },
+  //     },
+  //     xAxis: {
+  //       data: this.xAxisLabel,
+  //       axisLabel: {
+  //         rotate: 90,
+  //       },
+  //       interval: 0,
+  //     },
+  //     yAxis: { type: 'value' },
+  //     series: [
+  //       {
+  //         name: 'Enquiries',
+  //         type: 'bar',
+  //         data: this.totalEnquiriesBarChartData,
+  //         showBackground: true,
+  //         barMaxWidth: '50%',
+  //         label: {
+  //           show: true,
+  //         },
+  //         colorBy: 'data',
+  //         emphasis: {
+  //           itemStyle: {
+  //             shadowOffsetX: 2,
+  //           },
+  //         },
+  //       },
+  //     ],
+  //     grid: {
+  //       left: '3%',
+  //       right: '4%',
+  //       bottom: '3%',
+  //       containLabel: true,
+  //     },
+  //     graphic: {
+  //       elements: graphicElements,
+  //     },
+  //   };
+  // }
+
+  // getEnquiries(): number[] {
+  //   for (const data of this.barChartData) {
+  //     this.enquiriesData.push(data.enquiries);
+  //   }
+  //   return this.enquiriesData;
+  // }
+
+  // getXAxisLabels(): string[] {
+  //   for (const data of this.barChartData) {
+  //     this.xAxisLabel.push(data.xAxisLabel);
+  //   }
+  //   return this.xAxisLabel;
+  // }
 }
